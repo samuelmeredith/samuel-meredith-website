@@ -1,2 +1,5 @@
 name = "samuel-meredith-website"
-pages_build_output_dir = "."
+compatibility_date = "2026-05-24"
+
+[assets]
+directory = "."
