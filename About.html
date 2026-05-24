@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>About Samuel Meredith — Central Coast Web Designer</title>
+<meta name="description" content="Local, friendly and affordable. Find out how Samuel works and why clients love working with him." />
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Samuel Meredith Web Design" />
+<meta property="og:locale" content="en_AU" />
+<meta property="og:title" content="About Samuel Meredith — Central Coast Web Designer" />
+<meta property="og:description" content="Local, friendly and affordable. Find out how Samuel works and why clients love working with him." />
+<meta property="og:url" content="https://samuelmeredith.com.au/about" />
+<meta property="og:image" content="https://samuelmeredith.com.au/images/samuel-hero.jpg" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="About Samuel Meredith — Central Coast Web Designer" />
+<meta name="twitter:description" content="Local, friendly and affordable. Find out how Samuel works and why clients love working with him." />
+<meta name="twitter:image" content="https://samuelmeredith.com.au/images/samuel-hero.jpg" />
+<!-- Structured data -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://samuelmeredith.com.au/#person","name":"Samuel Meredith","jobTitle":"Web Designer","url":"https://samuelmeredith.com.au","email":"hello@samuelmeredith.com.au","image":"https://samuelmeredith.com.au/images/samuel-hero.jpg","address":{"@type":"PostalAddress","addressLocality":"Central Coast","addressRegion":"NSW","addressCountry":"AU"}},{"@type":"LocalBusiness","@id":"https://samuelmeredith.com.au/#business","name":"Samuel Meredith Web Design","description":"Affordable, professional web design for small businesses, tradies and personal brands on the Central Coast.","url":"https://samuelmeredith.com.au","email":"hello@samuelmeredith.com.au","founder":{"@id":"https://samuelmeredith.com.au/#person"},"address":{"@type":"PostalAddress","addressLocality":"Central Coast","addressRegion":"NSW","addressCountry":"AU"},"areaServed":["Gosford","Terrigal","The Entrance","Woy Woy","Erina","Avoca"],"priceRange":"$$","image":"https://samuelmeredith.com.au/images/samuel-hero.jpg"}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles/site.css" />
+<style>
+  /* ---------- ABOUT PAGE HEAD ---------- */
+  .about-head {
+    padding: 180px 0 0;
+    background: var(--cream);
+    position: relative;
+  }
+  .about-head__eyebrow-row {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 60px;
+  }
+  .about-head__eyebrow-row em {
+    font-family: var(--display); font-style: italic; font-size: 16px; color: var(--ink);
+    letter-spacing: 0; text-transform: none;
+  }
+  .about-head__title {
+    font-family: var(--display);
+    font-weight: 400;
+    margin: 0;
+    color: var(--ink);
+    line-height: 0.9;
+    letter-spacing: -0.025em;
+    font-size: clamp(72px, 12vw, 200px);
+  }
+  .about-head__title .row { display: block; }
+  .about-head__title .italic { font-style: italic; font-weight: 400; }
+  .about-head__title .caps {
+    font-family: var(--sans); text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.86em;
+    letter-spacing: -0.005em;
+  }
+  .about-head__title .terra { color: var(--terra); }
+  .about-head__sub {
+    margin-top: 56px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    border-top: 1px solid var(--rule);
+    padding-top: 28px;
+    padding-bottom: 90px;
+  }
+  .about-head__sub-line {
+    font-family: var(--display); font-size: 26px; line-height: 1.35; font-weight: 400;
+    color: var(--ink);
+  }
+  .about-head__sub-line .italic { font-style: italic; }
+  .about-head__sub-meta {
+    display: flex; flex-direction: column; gap: 18px;
+    padding-top: 6px;
+  }
+  .about-head__sub-meta .k { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+  .about-head__sub-meta .v { font-family: var(--display); font-size: 22px; color: var(--ink); margin-top: 2px; }
+  .about-head__sub-meta .v em { font-style: italic; color: var(--terra); }
+  .about-head__sub-meta .row {
+    display: flex; gap: 24px; padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .about-head__sub-meta .row:last-child { border-bottom: none; }
+  .about-head__sub-meta .row .left { flex: 0 0 130px; }
+  @media (max-width: 860px) {
+    .about-head { padding-top: 130px; }
+    .about-head__sub { grid-template-columns: 1fr; gap: 32px; padding-bottom: 60px; }
+  }
+
+  /* ---------- STORY SECTION ---------- */
+  .story {
+    background: var(--cream-2);
+    padding: 120px 0 130px;
+    position: relative;
+  }
+  .story__grid {
+    display: grid; grid-template-columns: 1fr 1.1fr; gap: 90px; align-items: start;
+  }
+  .story__media {
+    position: sticky; top: 110px;
+    aspect-ratio: 4/5;
+    background-image: url('images/samuel-hero.jpg');
+    background-size: cover;
+    background-position: 50% 28%;
+    background-color: #2a2018;
+  }
+  .story__media-tag {
+    position: absolute; left: -1px; top: 24px;
+    background: var(--cream);
+    padding: 10px 16px;
+    font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 500; color: var(--ink);
+    border: 1px solid var(--rule);
+    border-left: none;
+  }
+  .story__media-tag em { font-family: var(--display); font-style: italic; font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--terra); margin-left: 6px; }
+  .story__copy { padding-top: 30px; }
+  .story__lede {
+    font-family: var(--display); font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.25; font-weight: 400; color: var(--ink);
+    margin: 0 0 50px; max-width: 620px;
+    letter-spacing: -0.01em;
+  }
+  .story__lede .italic { font-style: italic; }
+  .story__body { font-size: 17px; line-height: 1.7; color: var(--ink); max-width: 540px; }
+  .story__body p { margin: 0 0 22px; }
+  .story__body p strong { font-weight: 500; }
+  .story__body p.callout {
+    font-family: var(--display); font-size: 22px; font-style: italic; line-height: 1.4;
+    color: var(--ink-soft);
+    border-left: 1px solid var(--terra); padding-left: 22px;
+    max-width: 460px;
+    margin: 28px 0;
+  }
+  @media (max-width: 940px) {
+    .story__grid { grid-template-columns: 1fr; gap: 40px; }
+    .story__media { position: static; aspect-ratio: 4/3; }
+  }
+
+  /* ---------- HOW I WORK ---------- */
+  .values {
+    background: var(--cream);
+    padding: 130px 0 120px;
+  }
+  .values__head {
+    display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: end;
+    margin-bottom: 70px;
+  }
+  .values__title {
+    font-family: var(--display);
+    font-size: clamp(48px, 6.2vw, 96px);
+    line-height: 0.98; font-weight: 400; letter-spacing: -0.02em;
+    margin: 14px 0 0; color: var(--ink); text-wrap: pretty;
+  }
+  .values__title .italic { font-style: italic; }
+  .values__title .caps { font-family: var(--sans); text-transform: uppercase; font-weight: 500; font-size: 0.58em; letter-spacing: 0; }
+  .values__lede {
+    font-family: var(--display); font-style: italic; font-size: 22px; line-height: 1.45;
+    color: var(--ink-soft); margin: 0; max-width: 440px;
+  }
+  @media (max-width: 860px) { .values__head { grid-template-columns: 1fr; gap: 18px; } }
+
+  .values__list {
+    border-top: 1px solid var(--ink);
+    list-style: none; margin: 0; padding: 0;
+  }
+  .value {
+    display: grid; grid-template-columns: 80px 1fr 2fr 60px;
+    gap: 40px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+    transition: padding 220ms ease;
+  }
+  .value:hover { padding-left: 12px; }
+  .value__num { font-family: var(--display); font-style: italic; font-size: 18px; color: var(--ink-soft); }
+  .value__name {
+    font-family: var(--display); font-size: clamp(32px, 4vw, 56px);
+    font-weight: 400; line-height: 1; letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+  .value__name .italic { font-style: italic; }
+  .value__name .caps { font-family: var(--sans); font-weight: 500; text-transform: uppercase; font-size: 0.46em; letter-spacing: 0.01em; }
+  .value__desc {
+    font-size: 16px; line-height: 1.6; color: var(--ink-soft); max-width: 540px;
+  }
+  .value__desc strong { color: var(--ink); font-weight: 500; }
+  .value__icon {
+    width: 36px; height: 36px; border: 1px solid var(--rule); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink-soft);
+    transition: background 220ms ease, color 220ms ease, border-color 220ms ease;
+  }
+  .value:hover .value__icon { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .value__icon svg { width: 12px; height: 12px; }
+  @media (max-width: 760px) {
+    .value { grid-template-columns: 40px 1fr 36px; gap: 14px; padding: 26px 0; }
+    .value__desc { grid-column: 1 / -1; padding-top: 12px; padding-left: 54px; }
+  }
+
+  /* ---------- TOOLS ROW ---------- */
+  .tools {
+    background: var(--cream-2);
+    padding: 90px 0 100px;
+    border-top: 1px solid var(--rule);
+  }
+  .tools__row {
+    display: grid; grid-template-columns: 1fr 2.2fr; gap: 60px; align-items: start;
+  }
+  .tools__label { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+  .tools__title {
+    font-family: var(--display); font-size: clamp(28px, 3.4vw, 44px);
+    line-height: 1.1; margin: 14px 0 0; font-weight: 400; color: var(--ink);
+    letter-spacing: -0.01em; text-wrap: pretty;
+  }
+  .tools__title .italic { font-style: italic; }
+  .tools__items {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 56px;
+  }
+  .tool {
+    display: flex; flex-direction: column; gap: 8px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+  }
+  .tool__name { font-family: var(--display); font-size: 26px; color: var(--ink); font-weight: 400; line-height: 1.1; }
+  .tool__name .italic { font-style: italic; }
+  .tool__use { font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
+  @media (max-width: 860px) {
+    .tools__row { grid-template-columns: 1fr; gap: 24px; }
+    .tools__items { grid-template-columns: 1fr 1fr; gap: 24px 28px; }
+  }
+  @media (max-width: 520px) { .tools__items { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-screen-label="04 About">
+
+<!-- NAV -->
+<nav class="nav on-light" id="nav">
+  <a href="Home.html" class="nav__brand">Samuel <em>Meredith</em></a>
+  <div class="nav__links">
+    <a href="Home.html">Home</a>
+    <a href="Services.html">Services</a>
+    <a href="Portfolio.html">Portfolio</a>
+    <a href="About.html" class="is-active">About</a>
+    <a href="Contact.html">Contact</a>
+  </div>
+  <a href="Contact.html" class="nav__cta">Get in touch</a>
+  <button class="nav__hamburger" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav__drawer" id="nav-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation">
+  <div class="nav__drawer-header">
+    <a href="Home.html" class="nav__brand nav__brand--drawer">Samuel <em>Meredith</em></a>
+    <button class="nav__close" id="nav-close" aria-label="Close menu">
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l12 12M13 1L1 13"/></svg>
+    </button>
+  </div>
+  <div class="nav__drawer-links">
+    <a href="Home.html">Home</a>
+    <a href="Services.html">Services</a>
+    <a href="Portfolio.html">Portfolio</a>
+    <a href="About.html" class="is-active">About</a>
+    <a href="Contact.html">Contact</a>
+  </div>
+  <a href="Contact.html" class="btn btn--terra nav__drawer-cta">Get in touch <span class="arrow">→</span></a>
+</div>
+<div class="nav__overlay" id="nav-overlay" aria-hidden="true"></div>
+
+<!-- ABOUT HEADER -->
+<header class="about-head" data-screen-label="Page header">
+  <div class="wrap">
+    <div class="about-head__eyebrow-row reveal">
+      <span class="eyebrow">— About · 04 / 05</span>
+      <span><em>Est. 2019 — Central Coast, NSW</em></span>
+    </div>
+    <h1 class="about-head__title reveal">
+      <span class="row"><span class="italic">Hey,</span> I'm</span>
+      <span class="row caps">Samuel<span class="terra">.</span></span>
+    </h1>
+    <div class="about-head__sub reveal">
+      <p class="about-head__sub-line">
+        Web designer. Central Coast local. <span class="italic">Genuinely happy to help.</span>
+      </p>
+      <div class="about-head__sub-meta">
+        <div class="row">
+          <span class="left"><span class="k">— Based</span><span class="v">Central Coast, NSW</span></span>
+          <span><span class="k">— Practicing</span><span class="v"><em>Since 2019</em></span></span>
+        </div>
+        <div class="row">
+          <span class="left"><span class="k">— Studio</span><span class="v">One person · me.</span></span>
+          <span><span class="k">— Reply within</span><span class="v"><em>1 business day</em></span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STORY SECTION -->
+<section class="story" data-screen-label="Story">
+  <div class="wrap">
+    <div class="story__grid">
+      <div class="story__media reveal">
+        <span class="story__media-tag">Samuel <em>— at home, Central Coast</em></span>
+      </div>
+      <div class="story__copy reveal">
+        <p class="story__lede">
+          I started building websites because I love the moment when someone sees their new site for the first time and it actually <span class="italic">looks like them</span> — when it feels right, works well, and makes them proud to hand out their URL.
+        </p>
+        <div class="story__body">
+          <p>I'm based on the Central Coast and I work mostly with local businesses, tradies, and personal brands who need a quality website without the agency price tag or the runaround.</p>
+          <p>When you work with me, you're not dealing with a big team or an account manager. It's <strong>just me</strong> — which means clear communication, honest timelines, and a finished product I stand behind.</p>
+          <p>I build with WordPress, Shopify, and custom HTML/CSS/JavaScript depending on what the project actually needs — not just whatever's easiest. I care about things like fast load times, mobile layouts, and making sure your site can actually be found on Google, because a good-looking site that doesn't perform isn't really doing its job.</p>
+          <p class="callout">I'm not the flashiest option out there, and I'm not trying to be. I just do good work, keep things simple, and make sure you know what's happening every step of the way.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW I WORK -->
+<section class="values" data-screen-label="How I work">
+  <div class="wrap">
+    <div class="values__head reveal">
+      <div>
+        <span class="eyebrow">— How I work</span>
+        <h2 class="values__title">Four <span class="italic">things</span> I won't<br/><span class="caps">budge on.</span></h2>
+      </div>
+      <p class="values__lede">The principles I keep coming back to — quietly, on every project, whether the client notices or not.</p>
+    </div>
+
+    <ul class="values__list reveal">
+      <li class="value">
+        <span class="value__num">— 01 /</span>
+        <span class="value__name"><span class="italic">Honest</span></span>
+        <p class="value__desc">I'll tell you what you <strong>actually need</strong>, not upsell you on things you don't. If a one-page site is the right call, I'll say so — even if a five-pager would pay me more.</p>
+        <span class="value__icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 6h10M7 2l4 4-4 4"/></svg></span>
+      </li>
+      <li class="value">
+        <span class="value__num">— 02 /</span>
+        <span class="value__name">Clear</span>
+        <p class="value__desc">No confusing jargon. You'll <strong>always know</strong> where your project is at — what's next, what I need from you, and when it'll be done.</p>
+        <span class="value__icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 6h10M7 2l4 4-4 4"/></svg></span>
+      </li>
+      <li class="value">
+        <span class="value__num">— 03 /</span>
+        <span class="value__name"><span class="italic">Local</span></span>
+        <p class="value__desc">I'm right here on the Central Coast. A <strong>real person</strong> you can actually talk to, meet for a coffee, and call back if something needs fixing.</p>
+        <span class="value__icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 6h10M7 2l4 4-4 4"/></svg></span>
+      </li>
+      <li class="value">
+        <span class="value__num">— 04 /</span>
+        <span class="value__name">Affordable</span>
+        <p class="value__desc">Quality work doesn't have to cost a fortune. I keep my <strong>prices fair</strong>, my scope realistic, and my add-ons honest — no surprise invoices.</p>
+        <span class="value__icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 6h10M7 2l4 4-4 4"/></svg></span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools" data-screen-label="Tools">
+  <div class="wrap">
+    <div class="tools__row reveal">
+      <div>
+        <span class="tools__label">— Stack</span>
+        <h3 class="tools__title">What I <span class="italic">build with.</span></h3>
+      </div>
+      <div class="tools__items">
+        <div class="tool"><span class="tool__name">WordPress</span><span class="tool__use">Most small-business sites. Easy for you to update, easy for Google to find.</span></div>
+        <div class="tool"><span class="tool__name">Shopify</span><span class="tool__use">If you're selling online. Reliable, mobile-first, painless to manage.</span></div>
+        <div class="tool"><span class="tool__name"><span class="italic">Custom HTML</span></span><span class="tool__use">For one-of-a-kind personal brands. Hand-built for speed and feel.</span></div>
+        <div class="tool"><span class="tool__name">Figma</span><span class="tool__use">For the design phase — so we can shape the site together before code.</span></div>
+        <div class="tool"><span class="tool__name">Google <span class="italic">Search Console</span></span><span class="tool__use">For tracking how your site is performing in local searches.</span></div>
+        <div class="tool"><span class="tool__name">A <span class="italic">phone call.</span></span><span class="tool__use">When email isn't doing the job. Usually the quickest way to sort things.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band" data-screen-label="Final CTA">
+  <div class="cta-band__corner">
+    <span class="dot"></span>
+    <span>Currently booking</span>
+  </div>
+  <div class="wrap">
+    <div class="cta-band__grid">
+      <div class="reveal">
+        <span class="eyebrow on-dark">— Final word</span>
+        <h2 class="cta-band__title">
+          Want to <span class="italic">work</span><br/>
+          <span class="caps">together?</span>
+        </h2>
+      </div>
+      <div class="reveal">
+        <p class="cta-band__body">Whether you've got a clear brief or just a rough idea, I'm happy to have a chat and help you figure out the best path forward.</p>
+        <a href="Contact.html" class="btn btn--terra">Send me a message <span class="arrow">→</span></a>
+        <div class="cta-band__direct">or email <a href="mailto:hello@samuelmeredith.com.au">hello@samuelmeredith.com.au</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <h3 class="foot__brand-name">Samuel <em>Meredith</em></h3>
+        <p class="foot__brand-meta">Web Designer — Central Coast, NSW.<br/>Websites that work as hard as you do.</p>
+      </div>
+      <div class="foot__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="Services.html">Landing Pages</a></li>
+          <li><a href="Services.html">Website Redesigns</a></li>
+          <li><a href="Services.html">SEO</a></li>
+          <li><a href="Services.html">Logo &amp; Branding</a></li>
+          <li><a href="Services.html">Care Plans</a></li>
+        </ul>
+      </div>
+      <div class="foot__col">
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="mailto:hello@samuelmeredith.com.au">hello@samuelmeredith.com.au</a></li>
+          <li><a href="Contact.html">Send a message →</a></li>
+          <li style="opacity:0.7;">Usually replies within 1 business day</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__copy">
+      <span>© 2025 Samuel Meredith. All rights reserved.</span>
+      <em>Made on the Central Coast.</em>
+    </div>
+  </div>
+</footer>
+
+<script src="styles/site.js"></script>
+</body>
+</html>

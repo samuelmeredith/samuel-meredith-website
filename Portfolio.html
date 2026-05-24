@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Portfolio — Samuel Meredith Web Designer</title>
+<meta name="description" content="A look at recent web design projects from Samuel Meredith, Central Coast NSW." />
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Samuel Meredith Web Design" />
+<meta property="og:locale" content="en_AU" />
+<meta property="og:title" content="Portfolio — Samuel Meredith Web Design" />
+<meta property="og:description" content="Recent web design projects for local businesses on the Central Coast. Landing pages, redesigns, and full brand builds." />
+<meta property="og:url" content="https://samuelmeredith.com.au/portfolio" />
+<meta property="og:image" content="https://samuelmeredith.com.au/images/samuel-hero.jpg" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Portfolio — Samuel Meredith Web Design" />
+<meta name="twitter:description" content="Recent web design projects for local businesses on the Central Coast. Landing pages, redesigns, and full brand builds." />
+<meta name="twitter:image" content="https://samuelmeredith.com.au/images/samuel-hero.jpg" />
+<!-- Structured data -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://samuelmeredith.com.au/#person","name":"Samuel Meredith","jobTitle":"Web Designer","url":"https://samuelmeredith.com.au","email":"hello@samuelmeredith.com.au","image":"https://samuelmeredith.com.au/images/samuel-hero.jpg","address":{"@type":"PostalAddress","addressLocality":"Central Coast","addressRegion":"NSW","addressCountry":"AU"}},{"@type":"LocalBusiness","@id":"https://samuelmeredith.com.au/#business","name":"Samuel Meredith Web Design","description":"Affordable, professional web design for small businesses, tradies and personal brands on the Central Coast.","url":"https://samuelmeredith.com.au","email":"hello@samuelmeredith.com.au","founder":{"@id":"https://samuelmeredith.com.au/#person"},"address":{"@type":"PostalAddress","addressLocality":"Central Coast","addressRegion":"NSW","addressCountry":"AU"},"areaServed":["Gosford","Terrigal","The Entrance","Woy Woy","Erina","Avoca"],"priceRange":"$$","image":"https://samuelmeredith.com.au/images/samuel-hero.jpg"}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles/site.css" />
+<style>
+  /* ---------- HEADER NOTE ---------- */
+  .pagehead__note {
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px;
+    font-size: 13px; color: var(--ink-soft);
+  }
+  .pagehead__note .k { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+  .pagehead__note .v { font-family: var(--display); font-size: 18px; color: var(--ink); display: block; margin-top: 4px; line-height: 1.3; }
+  .pagehead__note .v em { font-style: italic; color: var(--terra); }
+  @media (max-width: 760px) { .pagehead__note { grid-template-columns: 1fr; gap: 16px; } }
+
+  /* ---------- PORTFOLIO GRID ---------- */
+  .portfolio {
+    background: var(--cream);
+    padding: 100px 0 130px;
+  }
+  .portfolio__intro {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: end;
+    margin-bottom: 80px;
+  }
+  .portfolio__intro h2 {
+    font-family: var(--display);
+    font-size: clamp(36px, 4.4vw, 64px);
+    line-height: 1.04; font-weight: 400; letter-spacing: -0.015em;
+    margin: 12px 0 0; color: var(--ink); text-wrap: pretty;
+  }
+  .portfolio__intro h2 .italic { font-style: italic; }
+  .portfolio__intro p {
+    font-family: var(--display); font-style: italic;
+    font-size: 22px; line-height: 1.45; color: var(--ink-soft);
+    max-width: 460px; margin: 0;
+    text-align: right;
+  }
+  @media (max-width: 860px) {
+    .portfolio__intro { grid-template-columns: 1fr; gap: 24px; }
+    .portfolio__intro p { text-align: left; }
+  }
+
+  .pf-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 80px 48px;
+  }
+  .pf-card {
+    display: flex; flex-direction: column;
+    cursor: pointer;
+  }
+  .pf-card .pf-media {
+    aspect-ratio: 4 / 3;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    transition: transform 320ms ease, border-color 320ms ease;
+  }
+  .pf-card:hover .pf-media { transform: translateY(-6px); border-color: var(--ink); }
+  .pf-card.pf--tall .pf-media { aspect-ratio: 4 / 5; }
+  .pf-card.pf--wide .pf-media { aspect-ratio: 16 / 10; }
+  .pf-card.pf--square .pf-media { aspect-ratio: 1 / 1; }
+
+  .pf-browser {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .pf-browser__chrome {
+    height: 32px; background: var(--cream-2);
+    display: flex; align-items: center; gap: 6px;
+    padding: 0 14px;
+    border-bottom: 1px solid var(--rule);
+    flex-shrink: 0;
+  }
+  .pf-browser__chrome .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--rule); }
+  .pf-browser__chrome .url {
+    flex: 1; text-align: center;
+    font-family: "JetBrains Mono", "Courier New", monospace;
+    font-size: 10px; color: var(--ink-soft); letter-spacing: 0.02em;
+    background: var(--cream); border-radius: 4px;
+    padding: 3px 10px; margin: 0 14px;
+    max-width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .pf-browser__body {
+    flex: 1; position: relative;
+    overflow: hidden;
+  }
+  /* per-project background panels (warm tones) */
+  .pf--electric .pf-browser__body { background: linear-gradient(165deg, #2C1F14 0%, #3A2814 100%); }
+  .pf--cafe     .pf-browser__body { background: linear-gradient(170deg, #F5EDDE 0%, #E5D4B5 100%); }
+  .pf--plumber  .pf-browser__body { background: linear-gradient(150deg, #1F2419 0%, #2B3520 100%); }
+  .pf--salon    .pf-browser__body { background: linear-gradient(180deg, #F2E3D5 0%, #E0BFA3 100%); }
+  .pf--coach    .pf-browser__body { background: linear-gradient(180deg, #C4622D 0%, #A8521F 100%); }
+  .pf--builder  .pf-browser__body { background: linear-gradient(160deg, #1A1209 0%, #2C1F14 100%); }
+
+  /* wireframe sketch inside each card body */
+  .pf-sketch {
+    position: absolute; inset: 0;
+    padding: 32px 28px;
+    display: flex; flex-direction: column;
+    color: rgba(250,247,242,0.85);
+  }
+  .pf-sketch--dark { color: rgba(250,247,242,0.92); }
+  .pf-sketch--light { color: rgba(28,24,20,0.7); }
+  .pf-sketch__top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 28px;
+    font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+  }
+  .pf-sketch__top .nav-bits { display: flex; gap: 12px; opacity: 0.75; }
+  .pf-sketch__hero {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+  }
+  .pf-sketch__hero h3 {
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(22px, 3vw, 38px); line-height: 1; margin: 0 0 12px;
+    letter-spacing: -0.01em;
+  }
+  .pf-sketch__hero h3 em { font-style: italic; }
+  .pf-sketch__hero p {
+    font-size: 11px; line-height: 1.45; opacity: 0.7;
+    margin: 0; max-width: 60%;
+  }
+  .pf-sketch__bar {
+    margin-top: 24px;
+    display: flex; gap: 8px; align-items: center;
+  }
+  .pf-sketch__bar .button {
+    background: currentColor; opacity: 0.85; padding: 6px 10px; border-radius: 3px;
+    color: transparent; font-size: 10px;
+  }
+  .pf-sketch__bar .button.solid {
+    color: rgba(250,247,242,1); background: rgba(250,247,242,0.18); opacity: 1;
+  }
+
+  .pf-meta {
+    padding-top: 24px;
+  }
+  .pf-meta__tags {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 14px;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500;
+  }
+  .pf-meta__tags .num { color: var(--terra); }
+  .pf-meta__tags span:not(:last-child)::after { content: "·"; margin-left: 16px; color: var(--sand); }
+  .pf-meta__title {
+    font-family: var(--display); font-size: 28px; font-weight: 400;
+    line-height: 1.1; margin: 0 0 10px; letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .pf-meta__title .italic { font-style: italic; }
+  .pf-meta__desc {
+    font-size: 15px; line-height: 1.55; color: var(--ink-soft);
+    max-width: 480px; margin: 0 0 18px;
+  }
+  .pf-meta__link {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink); font-weight: 500; padding-bottom: 4px;
+    border-bottom: 1px solid var(--ink);
+    align-self: flex-start;
+    transition: color 200ms ease, border-color 200ms ease;
+  }
+  .pf-meta__link:hover { color: var(--terra); border-color: var(--terra); }
+
+  /* asymmetric grid layout */
+  .pf-card:nth-child(1) { grid-column: 1 / 8; }
+  .pf-card:nth-child(2) { grid-column: 9 / 13; margin-top: 90px; }
+  .pf-card:nth-child(3) { grid-column: 2 / 7; margin-top: 30px; }
+  .pf-card:nth-child(4) { grid-column: 8 / 13; }
+  .pf-card:nth-child(5) { grid-column: 1 / 6; margin-top: 40px; }
+  .pf-card:nth-child(6) { grid-column: 7 / 13; margin-top: 80px; }
+
+  @media (max-width: 860px) {
+    .pf-grid { grid-template-columns: 1fr; gap: 60px; }
+    .pf-card { grid-column: 1 / -1 !important; margin-top: 0 !important; }
+  }
+
+  /* ---------- IN-PROGRESS NOTE ---------- */
+  .progress {
+    background: var(--cream-2);
+    padding: 80px 0;
+  }
+  .progress__row {
+    display: grid; grid-template-columns: 1fr 1.6fr; gap: 56px; align-items: center;
+  }
+  .progress__title {
+    font-family: var(--display); font-size: 32px; line-height: 1.1; font-weight: 400;
+    letter-spacing: -0.01em; margin: 0; color: var(--ink);
+  }
+  .progress__title .italic { font-style: italic; }
+  .progress__body { font-size: 16px; line-height: 1.6; color: var(--ink-soft); max-width: 540px; margin: 0; }
+  .progress__body strong { color: var(--ink); font-weight: 500; }
+  @media (max-width: 760px) { .progress__row { grid-template-columns: 1fr; gap: 18px; } }
+</style>
+</head>
+<body data-screen-label="03 Portfolio">
+
+<!-- NAV -->
+<nav class="nav on-light" id="nav">
+  <a href="Home.html" class="nav__brand">Samuel <em>Meredith</em></a>
+  <div class="nav__links">
+    <a href="Home.html">Home</a>
+    <a href="Services.html">Services</a>
+    <a href="Portfolio.html" class="is-active">Portfolio</a>
+    <a href="About.html">About</a>
+    <a href="Contact.html">Contact</a>
+  </div>
+  <a href="Contact.html" class="nav__cta">Get in touch</a>
+  <button class="nav__hamburger" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav__drawer" id="nav-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation">
+  <div class="nav__drawer-header">
+    <a href="Home.html" class="nav__brand nav__brand--drawer">Samuel <em>Meredith</em></a>
+    <button class="nav__close" id="nav-close" aria-label="Close menu">
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l12 12M13 1L1 13"/></svg>
+    </button>
+  </div>
+  <div class="nav__drawer-links">
+    <a href="Home.html">Home</a>
+    <a href="Services.html">Services</a>
+    <a href="Portfolio.html" class="is-active">Portfolio</a>
+    <a href="About.html">About</a>
+    <a href="Contact.html">Contact</a>
+  </div>
+  <a href="Contact.html" class="btn btn--terra nav__drawer-cta">Get in touch <span class="arrow">→</span></a>
+</div>
+<div class="nav__overlay" id="nav-overlay" aria-hidden="true"></div>
+
+<!-- PAGE HEADER -->
+<header class="pagehead" data-screen-label="Page header">
+  <div class="wrap">
+    <div class="pagehead__row reveal">
+      <div>
+        <span class="eyebrow">— Portfolio · 03 / 05</span>
+      </div>
+      <h1 class="pagehead__title">
+        <span class="italic">Some</span> <span class="caps">of my</span> <span class="italic">work.</span>
+      </h1>
+    </div>
+
+    <div class="pagehead__note reveal">
+      <div>
+        <span class="k">— Sectors</span>
+        <span class="v">Tradies · <em>cafés &amp; salons</em> · personal brands</span>
+      </div>
+      <div>
+        <span class="k">— Stack</span>
+        <span class="v">WordPress · <em>Shopify</em> · HTML / CSS / JS</span>
+      </div>
+      <div>
+        <span class="k">— Recent</span>
+        <span class="v"><em>Six projects,</em> 2024–25</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PORTFOLIO GRID -->
+<section class="portfolio" data-screen-label="Project grid">
+  <div class="wrap">
+    <div class="portfolio__intro reveal">
+      <h2>I'm <span class="italic">always</span> building.<br/>Here's a look at some <span class="italic">recent</span> projects.</h2>
+      <p>Each one different, each one built with the client's goals — and their next call — <em>front and centre.</em></p>
+    </div>
+
+    <div class="pf-grid">
+
+      <!-- 01 — Electrician -->
+      <a class="pf-card reveal pf--wide" href="#">
+        <div class="pf-media">
+          <div class="pf-browser pf--electric">
+            <div class="pf-browser__chrome">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="url">coast-electric.com.au</span>
+            </div>
+            <div class="pf-browser__body">
+              <div class="pf-sketch pf-sketch--dark">
+                <div class="pf-sketch__top">
+                  <span>Coast Electric</span>
+                  <span class="nav-bits"><span>Work</span><span>Areas</span><span>Call</span></span>
+                </div>
+                <div class="pf-sketch__hero">
+                  <h3>Sparkies<br/><em>that show up.</em></h3>
+                  <p>Fast, fair, fully insured — covering Gosford, Terrigal &amp; The Entrance.</p>
+                  <div class="pf-sketch__bar">
+                    <span class="button solid">Book a job →</span>
+                    <span class="button">04xx xxx xxx</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pf-meta">
+          <div class="pf-meta__tags">
+            <span class="num">— 01</span>
+            <span>Landing page</span>
+            <span>WordPress</span>
+            <span>SEO</span>
+          </div>
+          <h3 class="pf-meta__title">Coast Electric — <span class="italic">Local Sparky</span></h3>
+          <p class="pf-meta__desc">A local electrician needed a simple, professional online presence that showed up in local searches and made it easy for customers to get in touch. I built a clean one-page site with a clear call to action and basic SEO setup.</p>
+          <span class="pf-meta__link">View case study →</span>
+        </div>
+      </a>
+
+      <!-- 02 — Café -->
+      <a class="pf-card reveal pf--tall" href="#">
+        <div class="pf-media">
+          <div class="pf-browser pf--cafe">
+            <div class="pf-browser__chrome">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="url">terrigalsouth.cafe</span>
+            </div>
+            <div class="pf-browser__body">
+              <div class="pf-sketch pf-sketch--light">
+                <div class="pf-sketch__top">
+                  <span>Terrigal South</span>
+                  <span class="nav-bits"><span>Menu</span><span>Hours</span><span>Find us</span></span>
+                </div>
+                <div class="pf-sketch__hero">
+                  <h3><em>Coffee,</em><br/>and a slow<br/>morning.</h3>
+                  <p>Open from 6am every day on the headland.</p>
+                  <div class="pf-sketch__bar">
+                    <span class="button" style="background:rgba(28,24,20,0.85);color:rgba(245,237,222,1);">See the menu →</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pf-meta">
+          <div class="pf-meta__tags">
+            <span class="num">— 02</span>
+            <span>Website redesign</span>
+            <span>WordPress</span>
+          </div>
+          <h3 class="pf-meta__title">Terrigal South — <span class="italic">Café &amp; Bakery</span></h3>
+          <p class="pf-meta__desc">A beachside café operating with a site built in 2017 that was hurting their brand. I rebuilt it as a quiet, photo-led 4-pager that matches the feel of the room.</p>
+          <span class="pf-meta__link">View case study →</span>
+        </div>
+      </a>
+
+      <!-- 03 — Plumber -->
+      <a class="pf-card reveal" href="#">
+        <div class="pf-media">
+          <div class="pf-browser pf--plumber">
+            <div class="pf-browser__chrome">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="url">centralcoast-plumbing.com.au</span>
+            </div>
+            <div class="pf-browser__body">
+              <div class="pf-sketch pf-sketch--dark">
+                <div class="pf-sketch__top">
+                  <span>CC Plumbing</span>
+                  <span class="nav-bits"><span>Services</span><span>Call</span></span>
+                </div>
+                <div class="pf-sketch__hero">
+                  <h3>Blocked drains?<br/><em>Burst pipes?</em></h3>
+                  <p>24/7 emergency plumbing — Central Coast wide.</p>
+                  <div class="pf-sketch__bar">
+                    <span class="button solid">Book now →</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pf-meta">
+          <div class="pf-meta__tags">
+            <span class="num">— 03</span>
+            <span>Landing page</span>
+            <span>SEO</span>
+          </div>
+          <h3 class="pf-meta__title">CC Plumbing — <span class="italic">Emergency Services</span></h3>
+          <p class="pf-meta__desc">A two-person plumbing crew needed a site built around one thing: getting the phone to ring. Single-page, ranked in 6 weeks for "plumber Gosford".</p>
+          <span class="pf-meta__link">View case study →</span>
+        </div>
+      </a>
+
+      <!-- 04 — Salon -->
+      <a class="pf-card reveal pf--square" href="#">
+        <div class="pf-media">
+          <div class="pf-browser pf--salon">
+            <div class="pf-browser__chrome">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="url">linden.studio</span>
+            </div>
+            <div class="pf-browser__body">
+              <div class="pf-sketch pf-sketch--light">
+                <div class="pf-sketch__top">
+                  <span>Linden Studio</span>
+                  <span class="nav-bits"><span>Services</span><span>Stylists</span><span>Book</span></span>
+                </div>
+                <div class="pf-sketch__hero">
+                  <h3>Slow hair,<br/><em>by hand.</em></h3>
+                  <p>An East Gosford studio for cut, colour, and quiet mornings.</p>
+                  <div class="pf-sketch__bar">
+                    <span class="button" style="background:rgba(28,24,20,0.85);color:rgba(242,227,213,1);">Book appointment →</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pf-meta">
+          <div class="pf-meta__tags">
+            <span class="num">— 04</span>
+            <span>Full website</span>
+            <span>Branding</span>
+            <span>WordPress</span>
+          </div>
+          <h3 class="pf-meta__title">Linden Studio — <span class="italic">Hair &amp; Beauty</span></h3>
+          <p class="pf-meta__desc">Branding from scratch and a 5-page website for a new East Gosford salon. Booking integration and quiet, photo-led editorial feel.</p>
+          <span class="pf-meta__link">View case study →</span>
+        </div>
+      </a>
+
+      <!-- 05 — Coach -->
+      <a class="pf-card reveal" href="#">
+        <div class="pf-media">
+          <div class="pf-browser pf--coach">
+            <div class="pf-browser__chrome">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="url">marleyparker.com</span>
+            </div>
+            <div class="pf-browser__body">
+              <div class="pf-sketch pf-sketch--dark">
+                <div class="pf-sketch__top">
+                  <span>Marley Parker</span>
+                  <span class="nav-bits"><span>Work</span><span>Coaching</span><span>Hi.</span></span>
+                </div>
+                <div class="pf-sketch__hero">
+                  <h3>Coaching for<br/><em>founders</em> &amp; teams.</h3>
+                  <p>1:1 and group programs — Sydney + remote.</p>
+                  <div class="pf-sketch__bar">
+                    <span class="button solid">Apply for coaching →</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pf-meta">
+          <div class="pf-meta__tags">
+            <span class="num">— 05</span>
+            <span>Personal brand</span>
+            <span>Custom HTML</span>
+          </div>
+          <h3 class="pf-meta__title">Marley Parker — <span class="italic">Executive Coach</span></h3>
+          <p class="pf-meta__desc">A bold, editorial personal-brand site for a founder coach. Single-page application form, custom-built in HTML/CSS/JS.</p>
+          <span class="pf-meta__link">View case study →</span>
+        </div>
+      </a>
+
+      <!-- 06 — Builder -->
+      <a class="pf-card reveal pf--wide" href="#">
+        <div class="pf-media">
+          <div class="pf-browser pf--builder">
+            <div class="pf-browser__chrome">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="url">heggie-build.com.au</span>
+            </div>
+            <div class="pf-browser__body">
+              <div class="pf-sketch pf-sketch--dark">
+                <div class="pf-sketch__top">
+                  <span>Heggie Build Co.</span>
+                  <span class="nav-bits"><span>Projects</span><span>About</span><span>Contact</span></span>
+                </div>
+                <div class="pf-sketch__hero">
+                  <h3><em>Considered</em><br/>builds for the<br/>Central Coast.</h3>
+                  <p>Custom homes, renovations &amp; small extensions — by appointment.</p>
+                  <div class="pf-sketch__bar">
+                    <span class="button solid">Start a project →</span>
+                    <span class="button">See past work</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pf-meta">
+          <div class="pf-meta__tags">
+            <span class="num">— 06</span>
+            <span>Website redesign</span>
+            <span>WordPress</span>
+            <span>SEO</span>
+          </div>
+          <h3 class="pf-meta__title">Heggie Build Co. — <span class="italic">Builder</span></h3>
+          <p class="pf-meta__desc">A second-generation Central Coast builder with great work but a 2012-era site. Editorial redesign with project gallery, lead form, and clean mobile experience.</p>
+          <span class="pf-meta__link">View case study →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- IN-PROGRESS NOTE -->
+<section class="progress" data-screen-label="Progress note">
+  <div class="wrap">
+    <div class="progress__row reveal">
+      <h2 class="progress__title">There's <span class="italic">more</span> where this came from.</h2>
+      <p class="progress__body">Most of my work is done quietly for local clients who'd rather not be in a portfolio. <strong>Happy to share more examples</strong> in a 15-minute call — including projects similar to what you're considering.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA BAND -->
+<section class="cta-band" data-screen-label="Final CTA">
+  <div class="cta-band__corner">
+    <span class="dot"></span>
+    <span>Currently booking</span>
+  </div>
+  <div class="wrap">
+    <div class="cta-band__grid">
+      <div class="reveal">
+        <span class="eyebrow on-dark">— Next step</span>
+        <h2 class="cta-band__title">
+          Want to see <span class="italic">more,</span><br/>
+          or talk through <span class="caps">your own</span> project?
+        </h2>
+      </div>
+      <div class="reveal">
+        <p class="cta-band__body">I'm always happy to share more about my process or chat through what your site could look like. No commitment — just a conversation.</p>
+        <a href="Contact.html" class="btn btn--terra">Get in touch <span class="arrow">→</span></a>
+        <div class="cta-band__direct">or email <a href="mailto:hello@samuelmeredith.com.au">hello@samuelmeredith.com.au</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <h3 class="foot__brand-name">Samuel <em>Meredith</em></h3>
+        <p class="foot__brand-meta">Web Designer — Central Coast, NSW.<br/>Websites that work as hard as you do.</p>
+      </div>
+      <div class="foot__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="Services.html">Landing Pages</a></li>
+          <li><a href="Services.html">Website Redesigns</a></li>
+          <li><a href="Services.html">SEO</a></li>
+          <li><a href="Services.html">Logo &amp; Branding</a></li>
+          <li><a href="Services.html">Care Plans</a></li>
+        </ul>
+      </div>
+      <div class="foot__col">
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="mailto:hello@samuelmeredith.com.au">hello@samuelmeredith.com.au</a></li>
+          <li><a href="Contact.html">Send a message →</a></li>
+          <li style="opacity:0.7;">Usually replies within 1 business day</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__copy">
+      <span>© 2025 Samuel Meredith. All rights reserved.</span>
+      <em>Made on the Central Coast.</em>
+    </div>
+  </div>
+</footer>
+
+<script src="styles/site.js"></script>
+</body>
+</html>

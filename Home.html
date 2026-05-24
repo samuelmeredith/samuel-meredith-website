@@ -1,0 +1,1427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Samuel Meredith — Web Designer, Central Coast NSW</title>
+<meta name="description" content="Affordable, professional web design for small businesses, tradies and personal brands on the Central Coast." />
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Samuel Meredith Web Design" />
+<meta property="og:locale" content="en_AU" />
+<meta property="og:title" content="Samuel Meredith — Web Designer, Central Coast NSW" />
+<meta property="og:description" content="Affordable, professional web design for small businesses, tradies and personal brands on the Central Coast. Helping locals across Gosford, Terrigal, The Entrance and beyond." />
+<meta property="og:url" content="https://samuelmeredith.com.au/" />
+<meta property="og:image" content="https://samuelmeredith.com.au/images/samuel-hero.jpg" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Samuel Meredith — Web Designer, Central Coast NSW" />
+<meta name="twitter:description" content="Affordable, professional web design for small businesses, tradies and personal brands on the Central Coast." />
+<meta name="twitter:image" content="https://samuelmeredith.com.au/images/samuel-hero.jpg" />
+<!-- Structured data -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://samuelmeredith.com.au/#person","name":"Samuel Meredith","jobTitle":"Web Designer","url":"https://samuelmeredith.com.au","email":"hello@samuelmeredith.com.au","image":"https://samuelmeredith.com.au/images/samuel-hero.jpg","address":{"@type":"PostalAddress","addressLocality":"Central Coast","addressRegion":"NSW","addressCountry":"AU"}},{"@type":"LocalBusiness","@id":"https://samuelmeredith.com.au/#business","name":"Samuel Meredith Web Design","description":"Affordable, professional web design for small businesses, tradies and personal brands on the Central Coast.","url":"https://samuelmeredith.com.au","email":"hello@samuelmeredith.com.au","founder":{"@id":"https://samuelmeredith.com.au/#person"},"address":{"@type":"PostalAddress","addressLocality":"Central Coast","addressRegion":"NSW","addressCountry":"AU"},"areaServed":["Gosford","Terrigal","The Entrance","Woy Woy","Erina","Avoca"],"priceRange":"$$","image":"https://samuelmeredith.com.au/images/samuel-hero.jpg"}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #FAF7F2;
+    --cream-2: #F2EDE6;
+    --ink: #1C1814;
+    --ink-soft: #423A30;
+    --choco: #2C1F14;
+    --choco-deep: #1A1209;
+    --terra: #C4622D;
+    --terra-hover: #A8521F;
+    --sand: #C9B99A;
+    --rule: rgba(28,24,20,0.18);
+    --rule-cream: rgba(250,247,242,0.22);
+    --display: "DM Serif Display", "Cormorant Garamond", Georgia, serif;
+    --sans: "DM Sans", system-ui, sans-serif;
+
+    /* Themeable surfaces — overridden by [data-theme] on <html> */
+    --hero-bg: var(--choco-deep);
+    --hero-fg: var(--cream);
+    --hero-fg-soft: #E8E0D2;
+    --hero-eyebrow: var(--sand);
+    --hero-rule: var(--rule-cream);
+    --hero-btn-fg: var(--cream);
+
+    --band-bg: var(--choco);
+    --band-fg: var(--cream);
+    --band-eyebrow: var(--sand);
+
+    --final-bg: var(--choco);
+    --final-fg: var(--cream);
+    --final-fg-soft: #E8E0D2;
+    --final-eyebrow: var(--sand);
+  }
+
+  /* LIGHT theme overrides for the heavy sections */
+  html[data-theme="light"] {
+    --hero-bg: var(--cream);
+    --hero-fg: var(--ink);
+    --hero-fg-soft: var(--ink-soft);
+    --hero-eyebrow: var(--ink-soft);
+    --hero-rule: var(--rule);
+    --hero-btn-fg: var(--ink);
+
+    --band-bg: var(--cream-2);
+    --band-fg: var(--ink);
+    --band-eyebrow: var(--ink-soft);
+
+    --final-bg: var(--cream-2);
+    --final-fg: var(--ink);
+    --final-fg-soft: var(--ink-soft);
+    --final-eyebrow: var(--ink-soft);
+  }
+
+  /* Accent palette swap */
+  html[data-accent="saffron"]  { --terra: #C68C2C; --terra-hover: #A8731F; }
+  html[data-accent="rust"]     { --terra: #9C3F1C; --terra-hover: #7E3215; }
+  html[data-accent="ink"]      { --terra: #2C1F14; --terra-hover: #1A1209; }
+  /* default terracotta inherited from :root */
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  button { font: inherit; cursor: pointer; }
+
+  .wrap { width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 56px; }
+  @media (max-width: 760px) { .wrap { padding: 0 24px; } }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+  .eyebrow.on-dark { color: var(--final-eyebrow); }
+
+  /* ---------- NAV ---------- */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 50;
+    padding: 22px 56px;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: background 240ms ease, padding 240ms ease, border-color 240ms ease, color 240ms ease;
+    border-bottom: 1px solid transparent;
+    color: var(--hero-fg);
+  }
+  .nav.scrolled {
+    background: var(--cream);
+    color: var(--ink);
+    padding: 14px 56px;
+    border-bottom: 1px solid var(--rule);
+  }
+  @media (max-width: 760px) {
+    .nav, .nav.scrolled { padding-left: 24px; padding-right: 24px; }
+  }
+  .nav__brand {
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+  .nav__brand em {
+    font-style: italic;
+    font-weight: 400;
+  }
+  .nav__links {
+    display: flex; gap: 36px; align-items: center;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .nav__links a { opacity: 0.85; transition: opacity 160ms ease; position: relative; padding: 6px 0; }
+  .nav__links a:hover { opacity: 1; }
+  .nav__links a::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+    height: 1px; background: currentColor;
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 220ms ease;
+  }
+  .nav__links a:hover::after { transform: scaleX(1); }
+  .nav__cta {
+    border: 1px solid currentColor;
+    color: inherit;
+    background: transparent;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background 200ms ease, color 200ms ease;
+  }
+  .nav.scrolled .nav__cta { background: var(--terra); color: var(--cream); border-color: var(--terra); }
+  .nav.scrolled .nav__cta:hover { background: var(--terra-hover); border-color: var(--terra-hover); }
+  .nav__cta:hover { background: var(--cream); color: var(--choco); }
+  /* -- Mobile hamburger toggle -------------------------------------------- */
+  .nav__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: inherit;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+  .nav__hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: currentColor;
+    border-radius: 1px;
+    transition: transform 280ms ease, opacity 280ms ease;
+  }
+  .nav__hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav__hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav__hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  @media (max-width: 920px) {
+    .nav__links { display: none; }
+    .nav__cta { display: none; }
+    .nav__hamburger { display: flex; }
+  }
+  /* -- Mobile drawer ------------------------------------------------------ */
+  .nav__drawer {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--choco-deep);
+    color: var(--cream);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 24px 56px;
+    transform: translateX(100%);
+    transition: transform 380ms cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+  }
+  .nav__drawer.open { transform: translateX(0); }
+  .nav__drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 52px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--rule-cream);
+  }
+  .nav__brand--drawer {
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+    white-space: nowrap;
+  }
+  .nav__brand--drawer em { font-style: italic; font-weight: 400; }
+  .nav__close {
+    background: none;
+    border: 1px solid var(--rule-cream);
+    color: var(--cream);
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: background 200ms ease;
+    flex-shrink: 0;
+  }
+  .nav__close svg { width: 14px; height: 14px; }
+  .nav__close:hover { background: rgba(250,247,242,0.12); }
+  .nav__drawer-links {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .nav__drawer-links a {
+    font-family: var(--display);
+    font-size: clamp(44px, 13vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--cream);
+    opacity: 0.55;
+    transition: opacity 160ms ease, color 160ms ease, padding-left 220ms ease;
+    display: block;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--rule-cream);
+  }
+  .nav__drawer-links a:last-child { border-bottom: none; }
+  .nav__drawer-links a:hover { opacity: 1; padding-left: 10px; }
+  .nav__drawer-links a.is-active { opacity: 1; color: var(--terra); }
+  .nav__drawer-cta { margin-top: 40px; align-self: flex-start; }
+  .nav__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 99;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 320ms ease;
+  }
+  .nav__overlay.open { opacity: 1; pointer-events: auto; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    background: var(--hero-bg);
+    color: var(--hero-fg);
+    min-height: 100vh;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    align-items: stretch;
+    transition: background 320ms ease, color 320ms ease;
+  }
+  .hero__media {
+    position: relative;
+    overflow: hidden;
+    background: #14100a;
+  }
+  .hero__content {
+    padding: 180px 80px 80px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .hero__top { max-width: 560px; }
+  .hero__meta {
+    display: flex; align-items: center; gap: 14px;
+    color: var(--hero-eyebrow);
+    margin-bottom: 28px;
+  }
+  .hero__meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--terra); display: inline-block; }
+  .hero__headline {
+    font-family: var(--display);
+    font-size: clamp(54px, 7.6vw, 124px);
+    line-height: 0.92;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    margin: 0;
+    color: var(--hero-fg);
+  }
+  .hero__headline .row { display: block; }
+  .hero__headline .italic {
+    font-style: italic;
+    font-weight: 400;
+  }
+  .hero__headline .caps {
+    font-family: var(--sans);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    font-size: 0.62em;
+    display: inline-block;
+    vertical-align: baseline;
+  }
+  .hero__headline .script {
+    font-family: var(--display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1em;
+    line-height: 0.9;
+    display: inline-block;
+  }
+  .hero__sub {
+    margin-top: 36px;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--hero-fg-soft);
+    font-weight: 300;
+    max-width: 480px;
+  }
+  .hero__cta-row {
+    display: flex; align-items: center; gap: 28px;
+    margin-top: 44px;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 16px 26px;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: 7px;
+    border: 1px solid transparent;
+    transition: background 220ms ease, color 220ms ease, border-color 220ms ease, transform 240ms ease;
+  }
+  .btn .arrow { transition: transform 280ms ease; }
+  .btn:hover .arrow { transform: translateX(4px); }
+  .btn--ghost {
+    color: var(--hero-btn-fg);
+    border-color: var(--hero-btn-fg);
+    background: transparent;
+  }
+  .btn--ghost:hover { background: var(--hero-btn-fg); color: var(--hero-bg); }
+  .btn--terra {
+    background: var(--terra); color: var(--cream); border-color: var(--terra);
+  }
+  .btn--terra:hover { background: var(--terra-hover); border-color: var(--terra-hover); }
+  .btn--ink {
+    background: var(--ink); color: var(--cream); border-color: var(--ink);
+  }
+  .btn--ink:hover { background: var(--choco); border-color: var(--choco); }
+  .btn--outline-ink {
+    color: var(--ink); border-color: var(--ink); background: transparent;
+  }
+  .btn--outline-ink:hover { background: var(--ink); color: var(--cream); }
+
+  .hero__small-link {
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500;
+    color: var(--hero-eyebrow);
+    border-bottom: 1px solid var(--hero-eyebrow);
+    padding-bottom: 4px;
+  }
+  .hero__small-link:hover { color: var(--hero-fg); border-color: var(--hero-fg); }
+
+  .hero__bottom {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    color: var(--hero-eyebrow);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding-top: 60px;
+  }
+  .hero__index { font-family: var(--display); font-size: 13px; font-style: italic; letter-spacing: 0; text-transform: none; color: var(--hero-eyebrow); }
+  .hero__scroll { display: flex; align-items: center; gap: 10px; }
+  .hero__scroll svg { width: 14px; height: auto; }
+
+  /* Portrait — real photo */
+  .portrait {
+    position: relative;
+    width: 100%; height: 100%;
+    background-image: url('images/samuel-hero.jpg');
+    background-size: cover;
+    background-position: 50% 28%;
+    background-color: #2a2018;
+  }
+  .portrait::after { content: none; }
+  .portrait--light {
+    background-image: url('images/samuel-hero.jpg');
+    background-size: cover;
+    background-position: 50% 28%;
+  }
+  .portrait--detail {
+    background-image: url('images/samuel-hero.jpg');
+    background-size: cover;
+    background-position: 56% 70%;
+  }
+
+  @media (max-width: 980px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero__media { height: 56vw; min-height: 360px; }
+    .hero__content { padding: 110px 28px 60px; }
+  }
+
+  /* ---------- TRUST BAR ---------- */
+  .trust {
+    background: var(--cream);
+    border-bottom: 1px solid var(--rule);
+    padding: 22px 56px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .trust__label {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .trust__locs {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink);
+    display: flex; gap: 14px; align-items: center;
+    flex-wrap: wrap; justify-content: center;
+  }
+  .trust__locs span:not(:last-child)::after {
+    content: "·"; margin-left: 14px; color: var(--sand);
+  }
+
+  /* ---------- WHO I HELP ---------- */
+  .who {
+    padding: 140px 0 120px;
+    background: var(--cream);
+  }
+  .section-head {
+    display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px;
+    align-items: end;
+    margin-bottom: 90px;
+  }
+  .section-head__label { padding-top: 6px; }
+  .section-head__title {
+    font-family: var(--display);
+    font-size: clamp(38px, 4.6vw, 64px);
+    line-height: 1.02;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin: 0;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .section-head__title .italic { font-style: italic; font-weight: 400; }
+  .section-head__title .caps {
+    font-family: var(--sans);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    font-size: 0.6em;
+  }
+  .section-head__title .script {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 1em;
+  }
+  @media (max-width: 860px) {
+    .section-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 60px; }
+  }
+
+  .who__grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .who__col {
+    padding: 48px 36px 12px 0;
+    border-right: 1px solid var(--rule);
+  }
+  .who__col:last-child { border-right: none; padding-right: 0; }
+  .who__col:not(:first-child) { padding-left: 36px; }
+  .who__num {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--terra);
+    margin-bottom: 28px;
+  }
+  .who__title {
+    font-family: var(--display);
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+    color: var(--ink);
+  }
+  .who__title .italic { font-style: italic; font-weight: 400; }
+  .who__body {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+  .who__lede {
+    font-family: var(--display);
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--ink);
+    font-weight: 400;
+    max-width: 760px;
+    margin: 0 0 50px;
+  }
+  .who__lede .italic { font-style: italic; }
+  .who__note {
+    margin-top: 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--rule);
+    padding-top: 24px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .who__note em { font-family: var(--display); font-style: italic; font-size: 18px; color: var(--ink); }
+  @media (max-width: 860px) {
+    .who__grid { grid-template-columns: 1fr; }
+    .who__col { border-right: none; border-bottom: 1px solid var(--rule); padding: 36px 0; }
+    .who__col:not(:first-child) { padding-left: 0; }
+    .who__col:last-child { border-bottom: none; }
+  }
+
+  /* ---------- SERVICES SNAPSHOT ---------- */
+  .services {
+    background: var(--cream-2);
+    padding: 140px 0 140px;
+  }
+  .services__head {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end;
+    margin-bottom: 80px;
+  }
+  .services__title {
+    font-family: var(--display);
+    font-size: clamp(42px, 5.4vw, 80px);
+    line-height: 0.98;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin: 12px 0 0;
+    color: var(--ink);
+  }
+  .services__title .italic { font-style: italic; }
+  .services__title .caps {
+    font-family: var(--sans);
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    font-size: 0.58em;
+  }
+  .services__title .script {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 1em;
+  }
+  .services__intro {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 440px;
+    margin: 0 0 6px;
+  }
+  @media (max-width: 860px) {
+    .services__head { grid-template-columns: 1fr; gap: 28px; margin-bottom: 50px; }
+  }
+
+  .svc-list { border-top: 1px solid var(--ink); margin: 0; padding: 0; list-style: none; }
+  .svc {
+    border-bottom: 1px solid var(--rule);
+    transition: background 220ms ease;
+  }
+  .svc__row {
+    display: grid;
+    grid-template-columns: 64px 1fr auto 56px;
+    align-items: center;
+    gap: 28px;
+    padding: 28px 0;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    color: var(--ink);
+    transition: color 220ms ease, padding 220ms ease;
+  }
+  .svc__row:hover { color: var(--terra); }
+  .svc__num {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink-soft);
+  }
+  .svc__name {
+    font-family: var(--display);
+    font-size: clamp(28px, 3.4vw, 44px);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+  }
+  .svc__name .italic { font-style: italic; }
+  .svc__name .caps {
+    font-family: var(--sans);
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.55em;
+    letter-spacing: 0.015em;
+  }
+  .svc__price {
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .svc__toggle {
+    width: 36px; height: 36px;
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 220ms ease, border-color 220ms ease, transform 280ms ease;
+    color: currentColor;
+    justify-self: end;
+  }
+  .svc__toggle svg { width: 14px; height: 14px; transition: transform 280ms ease; }
+  .svc[aria-expanded="true"] .svc__toggle { background: var(--ink); border-color: var(--ink); color: var(--cream); }
+  .svc[aria-expanded="true"] .svc__toggle svg { transform: rotate(45deg); }
+
+  .svc__panel {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 380ms ease;
+  }
+  .svc__panel-inner {
+    display: grid; grid-template-columns: 64px 1fr 1fr; gap: 28px;
+    padding: 0 0 36px 0;
+  }
+  .svc__desc {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 480px;
+    grid-column: 2;
+  }
+  .svc__incl {
+    grid-column: 3;
+    display: flex; flex-direction: column; gap: 10px;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .svc__incl-label {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .svc__incl ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .svc__incl li { padding-left: 22px; position: relative; line-height: 1.5; }
+  .svc__incl li::before {
+    content: ""; position: absolute; left: 0; top: 0.7em;
+    width: 12px; height: 1px; background: var(--terra);
+  }
+  @media (max-width: 760px) {
+    .svc__row { grid-template-columns: 32px 1fr 36px; gap: 14px; padding: 22px 0; }
+    .svc__price { display: none; }
+    .svc__panel-inner { grid-template-columns: 1fr; padding-left: 0; }
+    .svc__desc, .svc__incl { grid-column: 1; }
+    .svc__panel-inner { padding-bottom: 28px; }
+  }
+
+  .services__foot {
+    margin-top: 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 24px;
+  }
+  .services__foot-note {
+    font-family: var(--display); font-style: italic; font-size: 20px; color: var(--ink-soft); line-height: 1.4;
+    max-width: 460px;
+  }
+
+  /* ---------- NAME BAND ---------- */
+  .name-band {
+    background: var(--band-bg);
+    color: var(--band-fg);
+    padding: 80px 0 60px;
+    overflow: hidden;
+    position: relative;
+    transition: background 320ms ease, color 320ms ease;
+  }
+  .name-band__eyebrow {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 56px;
+    margin-bottom: 48px;
+    color: var(--band-eyebrow);
+  }
+  .name-band__eyebrow .left, .name-band__eyebrow .right {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500;
+  }
+  .name-band__eyebrow .right em {
+    font-family: var(--display); font-style: italic; font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--band-fg);
+  }
+  .name-band__type {
+    font-family: var(--display);
+    font-size: clamp(72px, 14.5vw, 240px);
+    line-height: 0.86;
+    font-weight: 400;
+    letter-spacing: -0.045em;
+    margin: 0;
+    padding: 0 56px;
+    color: var(--band-fg);
+    display: flex;
+    flex-direction: column;
+  }
+  .name-band__row {
+    display: block;
+    white-space: nowrap;
+  }
+  .name-band__row--first { text-align: left; }
+  .name-band__row--second {
+    text-align: right;
+    font-style: italic;
+    font-weight: 400;
+    margin-top: -0.04em;
+    padding-right: 0.04em;
+  }
+  .name-band__type .italic { font-style: italic; font-weight: 400; padding: 0 0.05em; }
+  @media (max-width: 760px) {
+    .name-band__type { font-size: 22vw; padding: 0 24px; }
+  }
+  .name-band__sub {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px;
+    padding: 0 56px;
+    margin-top: 48px;
+    color: var(--band-eyebrow);
+  }
+  .name-band__sub .cell { display: flex; flex-direction: column; gap: 6px; }
+  .name-band__sub .k {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; color: var(--band-eyebrow);
+  }
+  .name-band__sub .v {
+    font-family: var(--display); font-size: 22px; color: var(--band-fg); font-weight: 400; line-height: 1.2;
+  }
+  .name-band__sub .v em { font-family: var(--display); font-style: italic; font-size: 1em; }
+  .name-band__sub .v .terra { color: var(--terra); }
+  @media (max-width: 760px) {
+    .name-band__sub { grid-template-columns: 1fr; gap: 22px; padding: 0 24px; }
+    .name-band__eyebrow, .name-band__type { padding-left: 24px; padding-right: 24px; }
+  }
+
+  /* ---------- ABOUT TEASER ---------- */
+  .about {
+    background: var(--cream);
+    padding: 150px 0 140px;
+    position: relative;
+  }
+  .about__grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    gap: 90px;
+    align-items: start;
+  }
+  .about__media {
+    aspect-ratio: 4 / 5;
+    position: relative;
+    transform: translateY(0);
+  }
+  .about__media .portrait { height: 100%; }
+  .about__floating {
+    position: absolute;
+    right: -50px; bottom: 50px;
+    width: 180px;
+    aspect-ratio: 3/4;
+    border: 6px solid var(--cream);
+  }
+  .about__copy { padding-top: 40px; }
+  .about__kicker {
+    display: flex; align-items: center; gap: 14px;
+    color: var(--terra);
+    margin-bottom: 28px;
+  }
+  .about__kicker .line { width: 36px; height: 1px; background: var(--terra); }
+  .about__kicker .label {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500;
+  }
+  .about__title {
+    font-family: var(--display);
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin: 0 0 32px;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .about__title .italic { font-style: italic; }
+  .about__title .caps { font-family: var(--sans); font-weight: 500; text-transform: uppercase; font-size: 0.58em; letter-spacing: 0.01em; }
+  .about__body {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 520px;
+    margin: 0 0 24px;
+  }
+  .about__body strong { color: var(--ink); font-weight: 500; }
+  .about__sig {
+    margin-top: 36px;
+    display: flex; align-items: center; gap: 28px;
+    flex-wrap: wrap;
+  }
+  .about__sig-name {
+    font-family: var(--display); font-style: italic; font-size: 36px; color: var(--ink); line-height: 1;
+  }
+  .about__sig-meta {
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500;
+    padding-left: 28px; border-left: 1px solid var(--rule);
+  }
+  .about__cta { margin-top: 48px; }
+  @media (max-width: 940px) {
+    .about__grid { grid-template-columns: 1fr; gap: 40px; }
+    .about__floating { display: none; }
+    .about__copy { padding-top: 0; }
+  }
+
+  /* ---------- FINAL CTA ---------- */
+  .final {
+    background: var(--final-bg);
+    color: var(--final-fg);
+    padding: 140px 0 130px;
+    position: relative;
+    overflow: hidden;
+    transition: background 320ms ease, color 320ms ease;
+  }
+  .final__grid {
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; align-items: end;
+  }
+  .final__title {
+    font-family: var(--display);
+    font-size: clamp(56px, 7vw, 112px);
+    line-height: 0.95;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    margin: 24px 0 0;
+    color: var(--final-fg);
+  }
+  .final__title .italic { font-style: italic; }
+  .final__title .caps { font-family: var(--sans); text-transform: uppercase; font-weight: 500; font-size: 0.55em; letter-spacing: 0.01em; }
+  .final__title .script { font-family: var(--display); font-style: italic; font-size: 1em; }
+  .final__body {
+    font-size: 16px; line-height: 1.6; color: var(--final-fg-soft); max-width: 380px; margin: 0 0 40px; font-weight: 300;
+  }
+  .final__cta-row { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
+  .final__direct {
+    font-family: var(--display); font-style: italic; font-size: 18px; color: var(--final-eyebrow);
+  }
+  .final__direct a { color: var(--final-fg); border-bottom: 1px solid var(--final-eyebrow); padding-bottom: 2px; }
+  .final__direct a:hover { border-color: var(--final-fg); }
+  .final__corner {
+    position: absolute; right: 56px; top: 56px;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--final-eyebrow); font-weight: 500;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .final__corner .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--terra); }
+  @media (max-width: 860px) {
+    .final__grid { grid-template-columns: 1fr; gap: 40px; }
+    .final__corner { right: 24px; top: 24px; }
+  }
+
+  /* ---------- FOOTER ---------- */
+  .foot {
+    background: var(--choco-deep);
+    color: var(--sand);
+    padding: 80px 0 40px;
+  }
+  .foot__grid {
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 60px;
+    padding-bottom: 60px;
+  }
+  .foot__brand-name {
+    font-family: var(--display);
+    font-size: 28px;
+    color: var(--cream);
+    font-weight: 500;
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
+  }
+  .foot__brand-name em { font-style: italic; font-weight: 400; }
+  .foot__brand-meta {
+    font-size: 13px; line-height: 1.6; color: var(--sand); max-width: 320px;
+  }
+  .foot__col h4 {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--terra); margin: 0 0 22px; font-weight: 500;
+  }
+  .foot__col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  .foot__col a { color: var(--cream); font-size: 14px; opacity: 0.9; transition: opacity 160ms ease, color 160ms ease; }
+  .foot__col a:hover { color: var(--terra); opacity: 1; }
+  .foot__copy {
+    border-top: 1px solid var(--rule-cream);
+    padding-top: 28px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px;
+    color: var(--sand);
+    flex-wrap: wrap; gap: 12px;
+  }
+  .foot__copy em { font-family: var(--display); font-style: italic; font-size: 15px; color: var(--cream); }
+  @media (max-width: 760px) {
+    .foot__grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 700ms ease, transform 700ms ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  ::selection { background: var(--terra); color: var(--cream); }
+</style>
+</head>
+<body data-screen-label="01 Home">
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="Home.html" class="nav__brand">Samuel <em>Meredith</em></a>
+  <div class="nav__links">
+    <a href="Home.html" class="is-active">Home</a>
+    <a href="Services.html">Services</a>
+    <a href="Portfolio.html">Portfolio</a>
+    <a href="About.html">About</a>
+    <a href="Contact.html">Contact</a>
+  </div>
+  <a href="Contact.html" class="nav__cta">Get in touch</a>
+  <button class="nav__hamburger" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav__drawer" id="nav-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation">
+  <div class="nav__drawer-header">
+    <a href="Home.html" class="nav__brand nav__brand--drawer">Samuel <em>Meredith</em></a>
+    <button class="nav__close" id="nav-close" aria-label="Close menu">
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l12 12M13 1L1 13"/></svg>
+    </button>
+  </div>
+  <div class="nav__drawer-links">
+    <a href="Home.html" class="is-active">Home</a>
+    <a href="Services.html">Services</a>
+    <a href="Portfolio.html">Portfolio</a>
+    <a href="About.html">About</a>
+    <a href="Contact.html">Contact</a>
+  </div>
+  <a href="Contact.html" class="btn btn--terra nav__drawer-cta">Get in touch <span class="arrow">→</span></a>
+</div>
+<div class="nav__overlay" id="nav-overlay" aria-hidden="true"></div>
+
+<!-- HERO -->
+<header class="hero" data-screen-label="Hero">
+  <div class="hero__media">
+    <div class="portrait" data-label="PORTRAIT // SAMUEL — full bleed, moody, looking off-frame"></div>
+  </div>
+  <div class="hero__content">
+    <div class="hero__top">
+      <div class="hero__meta">
+        <span class="dot"></span>
+        <span style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-weight:500;">Central Coast, NSW — Est. 2019</span>
+      </div>
+      <h1 class="hero__headline">
+        <span class="row"><span class="script">websites</span> <span class="italic">that work</span></span>
+        <span class="row caps">As hard as</span>
+        <span class="row caps" style="color:var(--terra);">you do.</span>
+      </h1>
+      <p class="hero__sub">
+        I'm Samuel — a Central Coast web designer helping local businesses, tradies, and personal brands get online with a site they're actually proud of.
+      </p>
+      <div class="hero__cta-row">
+        <a href="Contact.html" class="btn btn--ghost">
+          Let's talk about your project
+          <span class="arrow">→</span>
+        </a>
+        <a href="Services.html" class="hero__small-link">See services</a>
+      </div>
+    </div>
+    <div class="hero__bottom">
+      <span class="hero__index">— Issue 01 / Personal Brand</span>
+      <span class="hero__scroll">
+        Scroll
+        <svg viewBox="0 0 14 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M7 1 V22 M2 17 L7 22 L12 17"/></svg>
+      </span>
+    </div>
+  </div>
+</header>
+
+<!-- TRUST BAR -->
+<section class="trust" aria-label="Service area">
+  <span class="trust__label">Helping businesses across the Central Coast</span>
+  <span class="trust__locs">
+    <span>Gosford</span><span>Terrigal</span><span>The Entrance</span><span>Woy Woy</span><span>Erina</span><span>Avoca</span>
+  </span>
+</section>
+
+<!-- WHO I HELP -->
+<section class="who" data-screen-label="Who I Help">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-head__label">
+        <span class="eyebrow">— Who I Help</span>
+      </div>
+      <h2 class="section-head__title">
+        Built for people who are <span class="script">brilliant</span> at <span class="caps">what they do</span> — <span class="italic">not web design.</span>
+      </h2>
+    </div>
+
+    <p class="who__lede reveal">
+      Whether you're a tradie who needs a site that wins jobs, a small business wanting to look more professional online, or a personal brand ready to put yourself out there — I make the whole process <span class="italic">easy, affordable,</span> and actually kind of enjoyable. No tech jargon. No hidden fees. Just a clean, fast website that represents you well.
+    </p>
+
+    <div class="who__grid reveal">
+      <div class="who__col">
+        <div class="who__num">— 01 /</div>
+        <h3 class="who__title">Tradies <span class="italic">&amp;</span> Service Providers</h3>
+        <p class="who__body">Plumbers, electricians, builders, landscapers — I'll get you online with a site that shows up on Google and turns visitors into calls.</p>
+      </div>
+      <div class="who__col">
+        <div class="who__num">— 02 /</div>
+        <h3 class="who__title">Small <span class="italic">Local</span> Businesses</h3>
+        <p class="who__body">Cafés, salons, health practitioners, retailers — your website should reflect the quality of your business. Let's make sure it does.</p>
+      </div>
+      <div class="who__col">
+        <div class="who__num">— 03 /</div>
+        <h3 class="who__title">Personal Brands <span class="italic">&amp;</span> Creators</h3>
+        <p class="who__body">Photographers, coaches, freelancers — your site is your first impression. Let's make it count.</p>
+      </div>
+    </div>
+
+    <div class="who__note reveal">
+      <span>Not sure where you fit?</span>
+      <em>That's exactly why we should chat.  →</em>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SNAPSHOT -->
+<section class="services" data-screen-label="Services Snapshot">
+  <div class="wrap">
+    <div class="services__head reveal">
+      <div>
+        <span class="eyebrow">— What I can do for you</span>
+        <h2 class="services__title"><span class="script">Simple,</span> <span class="italic">honest</span><br/><span class="caps">services.</span> <span class="italic">No fluff.</span></h2>
+      </div>
+      <p class="services__intro">
+        Here's the shortlist — five things I do really well, with starting prices laid out so you know what you're getting into. Tap any to expand.
+      </p>
+    </div>
+
+    <ul class="svc-list reveal" id="svc-list">
+
+      <li class="svc" aria-expanded="false">
+        <button class="svc__row" aria-controls="svc-1">
+          <span class="svc__num">01</span>
+          <span class="svc__name"><span class="italic">Landing</span> <span class="caps">Pages</span></span>
+          <span class="svc__price">From $699</span>
+          <span class="svc__toggle" aria-hidden="true">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 1v12M1 7h12"/></svg>
+          </span>
+        </button>
+        <div class="svc__panel" id="svc-1">
+          <div class="svc__panel-inner">
+            <p class="svc__desc">Sometimes one page is all you need. A single, focused page designed to do one thing well — whether that's capturing leads, promoting a service, or driving people to get in touch. Perfect for tradies who want a professional presence without committing to a full site.</p>
+            <div class="svc__incl">
+              <div class="svc__incl-label">What's included</div>
+              <ul>
+                <li>Clean, custom design</li>
+                <li>Mobile-friendly layout</li>
+                <li>Contact form</li>
+                <li>Basic SEO setup</li>
+                <li>Fast load times</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="svc" aria-expanded="false">
+        <button class="svc__row" aria-controls="svc-2">
+          <span class="svc__num">02</span>
+          <span class="svc__name"><span class="caps">Website</span> <span class="italic">Redesigns</span></span>
+          <span class="svc__price">From $1,200</span>
+          <span class="svc__toggle" aria-hidden="true">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 1v12M1 7h12"/></svg>
+          </span>
+        </button>
+        <div class="svc__panel" id="svc-2">
+          <div class="svc__panel-inner">
+            <p class="svc__desc">Got a website that's embarrassing to hand out? A redesign can completely transform how people perceive your business — without starting from scratch. I'll figure out what's working, what isn't, and rebuild it into something you're genuinely proud to share.</p>
+            <div class="svc__incl">
+              <div class="svc__incl-label">What's included</div>
+              <ul>
+                <li>Full visual refresh (up to 5 pages)</li>
+                <li>Updated layout and structure</li>
+                <li>Mobile optimisation</li>
+                <li>Improved page speed</li>
+                <li>Content carry-over or update</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="svc" aria-expanded="false">
+        <button class="svc__row" aria-controls="svc-3">
+          <span class="svc__num">03</span>
+          <span class="svc__name"><span class="italic">Search</span> <span class="caps">Engine Optimisation</span></span>
+          <span class="svc__price">From $499</span>
+          <span class="svc__toggle" aria-hidden="true">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 1v12M1 7h12"/></svg>
+          </span>
+        </button>
+        <div class="svc__panel" id="svc-3">
+          <div class="svc__panel-inner">
+            <p class="svc__desc">A beautiful website doesn't do much if no one can find it. SEO is how you show up when people in your area search for what you do. I keep it straightforward — no confusing reports, just the practical stuff that actually moves the needle for local businesses.</p>
+            <div class="svc__incl">
+              <div class="svc__incl-label">What's included</div>
+              <ul>
+                <li>Keyword research for your business</li>
+                <li>On-page SEO</li>
+                <li>Google Business Profile setup</li>
+                <li>Technical SEO audit &amp; fixes</li>
+                <li>Guidance on what to do next</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="svc" aria-expanded="false">
+        <button class="svc__row" aria-controls="svc-4">
+          <span class="svc__num">04</span>
+          <span class="svc__name"><span class="caps">Logo</span> <span class="italic">&amp; Basic</span> <span class="caps">Branding</span></span>
+          <span class="svc__price">From $299</span>
+          <span class="svc__toggle" aria-hidden="true">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 1v12M1 7h12"/></svg>
+          </span>
+        </button>
+        <div class="svc__panel" id="svc-4">
+          <div class="svc__panel-inner">
+            <p class="svc__desc">Your logo is often the first thing people see. It doesn't need to be complicated — it just needs to look intentional, professional, and like you. Simple, clean branding packages for businesses just starting out, or those who've been operating without a proper visual identity.</p>
+            <div class="svc__incl">
+              <div class="svc__incl-label">What's included</div>
+              <ul>
+                <li>2–3 logo concepts</li>
+                <li>Your chosen colour palette</li>
+                <li>Font pairing recommendation</li>
+                <li>Final files (PNG, SVG, PDF)</li>
+                <li>Simple usage guidelines</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="svc" aria-expanded="false">
+        <button class="svc__row" aria-controls="svc-5">
+          <span class="svc__num">05</span>
+          <span class="svc__name"><span class="italic">Website</span> <span class="caps">Care Plans</span></span>
+          <span class="svc__price">From $99 / month</span>
+          <span class="svc__toggle" aria-hidden="true">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 1v12M1 7h12"/></svg>
+          </span>
+        </button>
+        <div class="svc__panel" id="svc-5">
+          <div class="svc__panel-inner">
+            <p class="svc__desc">Websites need a little love to stay in good shape. Plugins update, things break, and small changes come up more often than you'd think. A care plan means you never have to worry — I handle the behind-the-scenes stuff so your site keeps running smoothly.</p>
+            <div class="svc__incl">
+              <div class="svc__incl-label">What's included</div>
+              <ul>
+                <li>Software &amp; plugin updates</li>
+                <li>Security monitoring</li>
+                <li>Monthly backups</li>
+                <li>Minor content edits</li>
+                <li>Priority response</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+
+    <div class="services__foot reveal">
+      <p class="services__foot-note">Every project's a little different. Want a more specific quote? Tell me what you're thinking — I'll give you a straight answer.</p>
+      <a href="Services.html" class="btn btn--outline-ink">See all services <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- NAME BAND -->
+<section class="name-band" aria-label="Samuel Meredith" data-screen-label="Name Band">
+  <div class="name-band__eyebrow">
+    <span class="left">— Web Designer · Central Coast NSW</span>
+    <span class="right"><em>Est. 2019</em></span>
+  </div>
+  <h2 class="name-band__type" aria-label="Samuel Meredith">
+    <span class="name-band__row name-band__row--first">SAMUEL</span>
+    <span class="name-band__row name-band__row--second">Meredith</span>
+  </h2>
+  <div class="name-band__sub">
+    <div class="cell">
+      <span class="k">— Currently</span>
+      <span class="v">Taking on <em>2 projects</em> for the new quarter.</span>
+    </div>
+    <div class="cell">
+      <span class="k">— Based</span>
+      <span class="v">Central Coast, NSW <em>— working with locals.</em></span>
+    </div>
+    <div class="cell">
+      <span class="k">— Reply within</span>
+      <span class="v"><span class="terra">1 business day.</span> <em>Promise.</em></span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT TEASER -->
+<section class="about" data-screen-label="About Teaser">
+  <div class="wrap">
+    <div class="about__grid">
+      <div class="about__media reveal">
+        <div class="portrait portrait--light" data-label="PORTRAIT // SAMUEL — at desk, soft natural light, 4:5"></div>
+        <div class="about__floating">
+          <div class="portrait portrait--detail"></div>
+        </div>
+      </div>
+      <div class="about__copy reveal">
+        <div class="about__kicker">
+          <span class="line"></span>
+          <span class="label">A bit about me</span>
+        </div>
+        <h2 class="about__title">
+          A real <span class="italic">person,</span><br/>
+          <span class="caps">not an</span> <span class="italic">agency.</span>
+        </h2>
+        <p class="about__body">
+          I'm a one-person studio based on the Central Coast. That means when you work with me, <strong>you deal with me</strong> — start to finish. No being passed around, no surprises.
+        </p>
+        <p class="about__body">
+          Just honest work, clear communication, and a result you'll love handing out the URL to.
+        </p>
+        <div class="about__sig">
+          <span class="about__sig-name">— Samuel</span>
+          <span class="about__sig-meta">Designer · Builder · Local</span>
+        </div>
+        <div class="about__cta">
+          <a href="About.html" class="btn btn--outline-ink">A bit more about me <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" data-screen-label="Final CTA">
+  <div class="final__corner">
+    <span class="dot"></span>
+    <span>Currently booking</span>
+  </div>
+  <div class="wrap">
+    <div class="final__grid">
+      <div class="reveal">
+        <span class="eyebrow on-dark">— Final word</span>
+        <h2 class="final__title">
+          Ready to <span class="script">get</span><br/>
+          <span class="caps">started?</span>
+        </h2>
+      </div>
+      <div class="reveal final__cta-row">
+        <p class="final__body">
+          Got a project in mind, or just not sure where to begin? Either way, drop me a message. I'm happy to have a no-pressure chat about what you need.
+        </p>
+        <a href="Contact.html" class="btn btn--terra">Get in touch <span class="arrow">→</span></a>
+        <span class="final__direct">or email <a href="mailto:hello@samuelmeredith.com.au">hello@samuelmeredith.com.au</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <h3 class="foot__brand-name">Samuel <em>Meredith</em></h3>
+        <p class="foot__brand-meta">Web Designer — Central Coast, NSW.<br/>Websites that work as hard as you do.</p>
+      </div>
+      <div class="foot__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="Services.html">Landing Pages</a></li>
+          <li><a href="Services.html">Website Redesigns</a></li>
+          <li><a href="Services.html">SEO</a></li>
+          <li><a href="Services.html">Logo &amp; Branding</a></li>
+          <li><a href="Services.html">Care Plans</a></li>
+        </ul>
+      </div>
+      <div class="foot__col">
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="mailto:hello@samuelmeredith.com.au">hello@samuelmeredith.com.au</a></li>
+          <li><a href="Contact.html">Send a message →</a></li>
+          <li style="opacity:0.7;">Usually replies within 1 business day</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__copy">
+      <span>© 2025 Samuel Meredith. All rights reserved.</span>
+      <em>Made on the Central Coast.</em>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll behaviour
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Services accordion
+  document.querySelectorAll('.svc').forEach(item => {
+    const btn = item.querySelector('.svc__row');
+    const panel = item.querySelector('.svc__panel');
+    btn.addEventListener('click', () => {
+      const isOpen = item.getAttribute('aria-expanded') === 'true';
+      // close siblings
+      document.querySelectorAll('.svc').forEach(o => {
+        if (o !== item) {
+          o.setAttribute('aria-expanded', 'false');
+          o.querySelector('.svc__panel').style.maxHeight = '0px';
+        }
+      });
+      if (isOpen) {
+        item.setAttribute('aria-expanded', 'false');
+        panel.style.maxHeight = '0px';
+      } else {
+        item.setAttribute('aria-expanded', 'true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Reveal-on-scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Mobile nav drawer
+  const navToggle  = document.getElementById('nav-toggle');
+  const navDrawer  = document.getElementById('nav-drawer');
+  const navOverlay = document.getElementById('nav-overlay');
+  const navClose   = document.getElementById('nav-close');
+  if (navToggle && navDrawer) {
+    const openMenu = () => {
+      navDrawer.classList.add('open');
+      if (navOverlay) navOverlay.classList.add('open');
+      navToggle.setAttribute('aria-expanded', 'true');
+      navDrawer.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeMenu = () => {
+      navDrawer.classList.remove('open');
+      if (navOverlay) navOverlay.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navDrawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+    navToggle.addEventListener('click', openMenu);
+    if (navClose) navClose.addEventListener('click', closeMenu);
+    if (navOverlay) navOverlay.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+  }
+</script>
+</body>
+</html>
