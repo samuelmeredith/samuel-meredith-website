@@ -124,6 +124,16 @@
   .pf--salon    .pf-browser__body { background: linear-gradient(180deg, #F2E3D5 0%, #E0BFA3 100%); }
   .pf--coach    .pf-browser__body { background: linear-gradient(180deg, #C4622D 0%, #A8521F 100%); }
   .pf--builder  .pf-browser__body { background: linear-gradient(160deg, #1A1209 0%, #2C1F14 100%); }
+  .pf--sophie   .pf-browser__body { background: #FAF8F5; }
+
+  /* live iframe preview */
+  .pf-iframe-wrap { position: absolute; inset: 0; overflow: hidden; }
+  .pf-iframe-wrap iframe {
+    position: absolute; top: 0; left: 0;
+    width: 1280px; height: 900px;
+    transform: scale(0.6); transform-origin: top left;
+    border: none; pointer-events: none;
+  }
 
   /* wireframe sketch inside each card body */
   .pf-sketch {
@@ -300,28 +310,17 @@
 
     <div class="pf-grid">
 
-      <!-- 01 — Electrician -->
-      <a class="pf-card reveal pf--wide" href="Contact.html">
+      <!-- 01 — Sophie Meredith UGC Creator -->
+      <a class="pf-card reveal pf--wide" href="https://sophie-site-six.vercel.app" target="_blank" rel="noopener">
         <div class="pf-media">
-          <div class="pf-browser pf--electric">
+          <div class="pf-browser pf--sophie">
             <div class="pf-browser__chrome">
               <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-              <span class="url">coast-electric.com.au</span>
+              <span class="url">sophiemeredith.com.au</span>
             </div>
             <div class="pf-browser__body">
-              <div class="pf-sketch pf-sketch--dark">
-                <div class="pf-sketch__top">
-                  <span>Coast Electric</span>
-                  <span class="nav-bits"><span>Work</span><span>Areas</span><span>Call</span></span>
-                </div>
-                <div class="pf-sketch__hero">
-                  <h3>Sparkies<br/><em>that show up.</em></h3>
-                  <p>Fast, fair, fully insured — covering Gosford, Terrigal &amp; The Entrance.</p>
-                  <div class="pf-sketch__bar">
-                    <span class="button solid">Book a job →</span>
-                    <span class="button">04xx xxx xxx</span>
-                  </div>
-                </div>
+              <div class="pf-iframe-wrap">
+                <iframe src="https://sophie-site-six.vercel.app" title="Sophie Meredith UGC Creator website" loading="lazy" scrolling="no" tabindex="-1"></iframe>
               </div>
             </div>
           </div>
@@ -329,13 +328,13 @@
         <div class="pf-meta">
           <div class="pf-meta__tags">
             <span class="num">— 01</span>
-            <span>Landing page</span>
-            <span>WordPress</span>
-            <span>SEO</span>
+            <span>Personal brand</span>
+            <span>Custom HTML</span>
+            <span>UGC</span>
           </div>
-          <h3 class="pf-meta__title">Coast Electric — <span class="italic">Local Sparky</span></h3>
-          <p class="pf-meta__desc">A local electrician needed a simple, professional online presence that showed up in local searches and made it easy for customers to get in touch. I built a clean one-page site with a clear call to action and basic SEO setup.</p>
-          <span class="pf-meta__link">View case study →</span>
+          <h3 class="pf-meta__title">Sophie Meredith — <span class="italic">UGC Creator</span></h3>
+          <p class="pf-meta__desc">Sophie creates video and photo content for beauty, wellness and lifestyle brands — but her old site wasn't doing her work justice. I built a clean, editorial personal brand site with a tiered pricing page, selected work gallery, and a direct contact flow. Designed to land brand partnerships at a glance.</p>
+          <span class="pf-meta__link">Visit live site →</span>
         </div>
       </a>
 
