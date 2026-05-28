@@ -86,49 +86,30 @@
     background: var(--cream);
     padding: 120px 0 140px;
   }
-  .form-section__head {
-    display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: end;
-    margin-bottom: 70px;
+  .form-intro {
+    font-family: var(--display); font-style: italic; font-size: clamp(22px, 2.6vw, 32px);
+    line-height: 1.4; color: var(--ink-soft); margin: 0 0 60px; max-width: 680px;
   }
-  .form-section__title {
-    font-family: var(--display);
-    font-size: clamp(42px, 5vw, 76px);
-    line-height: 0.98; font-weight: 400; letter-spacing: -0.02em;
-    margin: 12px 0 0; color: var(--ink); text-wrap: pretty;
-  }
-  .form-section__title .italic { font-style: italic; }
-  .form-section__title .caps {
-    font-family: var(--sans); text-transform: uppercase; font-weight: 500; font-size: 0.58em; letter-spacing: 0;
-  }
-  .form-section__guide {
-    font-family: var(--display); font-style: italic; font-size: 20px; line-height: 1.45;
-    color: var(--ink-soft); max-width: 380px; margin: 0;
-  }
-  @media (max-width: 860px) { .form-section__head { grid-template-columns: 1fr; gap: 20px; } }
 
   .form {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: 30px 28px;
+    gap: 36px 28px;
     border-top: 1px solid var(--ink);
-    padding-top: 40px;
+    padding-top: 48px;
   }
   .field { display: flex; flex-direction: column; gap: 10px; position: relative; }
   .field--half { grid-column: span 6; }
   .field--full { grid-column: 1 / -1; }
-  .field--third { grid-column: span 4; }
-  .field--two-thirds { grid-column: span 8; }
   @media (max-width: 760px) {
-    .field--half, .field--third, .field--two-thirds { grid-column: 1 / -1; }
+    .field--half { grid-column: 1 / -1; }
   }
 
   .field__label {
     display: flex; justify-content: space-between; align-items: baseline;
     font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; color: var(--ink);
   }
-  .field__label .num { color: var(--ink-soft); font-family: var(--display); font-style: italic; font-size: 14px; letter-spacing: 0; text-transform: none; }
   .field__label .optional { color: var(--ink-soft); font-family: var(--display); font-style: italic; font-size: 13px; letter-spacing: 0; text-transform: none; }
-  .field__label .required { color: var(--terra); }
 
   .field input[type="text"],
   .field input[type="email"],
@@ -359,77 +340,49 @@
 <!-- FORM -->
 <section class="form-section" data-screen-label="Form">
   <div class="wrap">
-    <div class="form-section__head reveal">
-      <div>
-        <span class="eyebrow">— Tell me about your project</span>
-        <h2 class="form-section__title">
-          The <span class="italic">whole thing,</span><br/>
-          on <span class="caps">one form.</span>
-        </h2>
-      </div>
-      <p class="form-section__guide">Six quick fields. The more detail you can share, the more useful my reply will be — but if you're early days, just rough strokes is fine.</p>
-    </div>
+    <p class="form-intro reveal">A few quick details and I'll be in touch within one business day.</p>
 
     <form class="form reveal" id="contact-form" autocomplete="off">
 
       <div class="field field--half">
-        <label class="field__label" for="f-name">
-          <span><span class="num">01.</span> &nbsp; Your name <span class="required">*</span></span>
-        </label>
-        <input id="f-name" type="text" name="name" placeholder="e.g. Sam Hutchins" required />
+        <label class="field__label" for="f-name">Name</label>
+        <input id="f-name" type="text" name="name" placeholder="Your name" required />
       </div>
 
       <div class="field field--half">
-        <label class="field__label" for="f-email">
-          <span><span class="num">02.</span> &nbsp; Your email <span class="required">*</span></span>
-        </label>
+        <label class="field__label" for="f-email">Email</label>
         <input id="f-email" type="email" name="email" placeholder="you@email.com" required />
       </div>
 
-      <div class="field field--third">
+      <div class="field field--half">
         <label class="field__label" for="f-phone">
-          <span><span class="num">03.</span> &nbsp; Phone</span>
+          <span>Phone</span>
           <span class="optional">— optional</span>
         </label>
         <input id="f-phone" type="tel" name="phone" placeholder="04xx xxx xxx" />
       </div>
 
-      <div class="field field--third field--select">
-        <label class="field__label" for="f-type">
-          <span><span class="num">04.</span> &nbsp; Project type</span>
-        </label>
+      <div class="field field--half field--select">
+        <label class="field__label" for="f-type">What are you after?</label>
         <select id="f-type" name="type">
           <option value="">— Choose one</option>
           <option>Landing Page</option>
+          <option>Full Website (4 pages)</option>
           <option>Website Redesign</option>
-          <option>SEO</option>
-          <option>Logo &amp; Branding</option>
-          <option>Care Plan</option>
+          <option>Branding &amp; Logo</option>
+          <option>SEO Analysis</option>
+          <option>Care Plan or Updates</option>
           <option>Not sure yet</option>
           <option>Something else</option>
         </select>
       </div>
 
-      <div class="field field--third field--select">
-        <label class="field__label" for="f-budget">
-          <span><span class="num">05.</span> &nbsp; Rough budget</span>
-        </label>
-        <select id="f-budget" name="budget">
-          <option value="">— Choose a range</option>
-          <option>Under $500</option>
-          <option>$500 — $1,000</option>
-          <option>$1,000 — $3,000</option>
-          <option>$3,000 +</option>
-          <option>Not sure</option>
-        </select>
-      </div>
-
       <div class="field field--full">
         <label class="field__label" for="f-msg">
-          <span><span class="num">06.</span> &nbsp; Tell me about your project</span>
-          <span class="optional">— a paragraph or two is great</span>
+          <span>Tell me about your project</span>
+          <span class="optional">— a rough outline is plenty</span>
         </label>
-        <textarea id="f-msg" name="message" placeholder="e.g. I run a plumbing business and need a simple website that shows up on Google when people search for 'plumber Gosford'..."></textarea>
+        <textarea id="f-msg" name="message" placeholder="What do you need, and what's the rough timeline? I'll ask questions from there."></textarea>
       </div>
 
       <div class="form__foot">
