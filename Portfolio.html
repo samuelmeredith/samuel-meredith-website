@@ -117,14 +117,10 @@
     flex: 1; position: relative;
     overflow: hidden;
   }
-  /* per-project background panels (warm tones) */
-  .pf--electric .pf-browser__body { background: linear-gradient(165deg, #2C1F14 0%, #3A2814 100%); }
-  .pf--cafe     .pf-browser__body { background: linear-gradient(170deg, #F5EDDE 0%, #E5D4B5 100%); }
-  .pf--plumber  .pf-browser__body { background: linear-gradient(150deg, #1F2419 0%, #2B3520 100%); }
-  .pf--salon    .pf-browser__body { background: linear-gradient(180deg, #F2E3D5 0%, #E0BFA3 100%); }
-  .pf--coach    .pf-browser__body { background: linear-gradient(180deg, #C4622D 0%, #A8521F 100%); }
-  .pf--builder  .pf-browser__body { background: linear-gradient(160deg, #1A1209 0%, #2C1F14 100%); }
-  .pf--sophie   .pf-browser__body { background: #FAF8F5; }
+  /* per-project background panels */
+  .pf--sophie    .pf-browser__body { background: #FAF8F5; }
+  .pf--heartlink .pf-browser__body { background: #EEF4F0; }
+  .pf--elevate   .pf-browser__body { background: #1C2D4A; }
 
   /* live iframe preview */
   .pf-iframe-wrap { position: absolute; inset: 0; overflow: hidden; }
@@ -208,9 +204,6 @@
   .pf-card:nth-child(1) { grid-column: 1 / 8; }
   .pf-card:nth-child(2) { grid-column: 9 / 13; margin-top: 90px; }
   .pf-card:nth-child(3) { grid-column: 2 / 7; margin-top: 30px; }
-  .pf-card:nth-child(4) { grid-column: 8 / 13; }
-  .pf-card:nth-child(5) { grid-column: 1 / 6; margin-top: 40px; }
-  .pf-card:nth-child(6) { grid-column: 7 / 13; margin-top: 80px; }
 
   @media (max-width: 860px) {
     .pf-grid { grid-template-columns: 1fr; gap: 60px; }
@@ -286,15 +279,15 @@
     <div class="pagehead__note reveal">
       <div>
         <span class="k">— Sectors</span>
-        <span class="v">Tradies · <em>cafés &amp; salons</em> · personal brands</span>
+        <span class="v">Builders · <em>NDIS &amp; health</em> · personal brands</span>
       </div>
       <div>
         <span class="k">— Stack</span>
-        <span class="v">WordPress · <em>Shopify</em> · HTML / CSS / JS</span>
+        <span class="v">Custom HTML / CSS / JS · <em>WordPress</em></span>
       </div>
       <div>
         <span class="k">— Recent</span>
-        <span class="v"><em>Six projects,</em> 2024–25</span>
+        <span class="v"><em>Three projects,</em> 2024–26</span>
       </div>
     </div>
   </div>
@@ -338,27 +331,17 @@
         </div>
       </a>
 
-      <!-- 02 — Café -->
-      <a class="pf-card reveal pf--tall" href="Contact.html">
+      <!-- 02 — Heart Link Supports -->
+      <a class="pf-card reveal pf--tall" href="https://heart-link-supports.vercel.app" target="_blank" rel="noopener">
         <div class="pf-media">
-          <div class="pf-browser pf--cafe">
+          <div class="pf-browser pf--heartlink">
             <div class="pf-browser__chrome">
               <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-              <span class="url">terrigalsouth.cafe</span>
+              <span class="url">heartlinksupports.com.au</span>
             </div>
             <div class="pf-browser__body">
-              <div class="pf-sketch pf-sketch--light">
-                <div class="pf-sketch__top">
-                  <span>Terrigal South</span>
-                  <span class="nav-bits"><span>Menu</span><span>Hours</span><span>Find us</span></span>
-                </div>
-                <div class="pf-sketch__hero">
-                  <h3><em>Coffee,</em><br/>and a slow<br/>morning.</h3>
-                  <p>Open from 6am every day on the headland.</p>
-                  <div class="pf-sketch__bar">
-                    <span class="button" style="background:rgba(28,24,20,0.85);color:rgba(245,237,222,1);">See the menu →</span>
-                  </div>
-                </div>
+              <div class="pf-iframe-wrap">
+                <iframe src="https://heart-link-supports.vercel.app" title="Heart Link Supports website" loading="lazy" scrolling="no" tabindex="-1"></iframe>
               </div>
             </div>
           </div>
@@ -366,36 +349,27 @@
         <div class="pf-meta">
           <div class="pf-meta__tags">
             <span class="num">— 02</span>
-            <span>Website redesign</span>
-            <span>WordPress</span>
+            <span>Full website</span>
+            <span>Custom HTML</span>
+            <span>NDIS</span>
           </div>
-          <h3 class="pf-meta__title">Terrigal South — <span class="italic">Café &amp; Bakery</span></h3>
-          <p class="pf-meta__desc">A beachside café operating with a site built in 2017 that was hurting their brand. I rebuilt it as a quiet, photo-led 4-pager that matches the feel of the room.</p>
-          <span class="pf-meta__link">View case study →</span>
+          <h3 class="pf-meta__title">Heart Link Supports — <span class="italic">NDIS Provider</span></h3>
+          <p class="pf-meta__desc">NDIS support services covering the Central Coast and Hunter regions. Built a warm, approachable site with clear pathways for participants, carers, and referrers — covering support workers, domestic assistance, coordination, and occupational therapy.</p>
+          <span class="pf-meta__link">Visit live site →</span>
         </div>
       </a>
 
-      <!-- 03 — Plumber -->
-      <a class="pf-card reveal" href="Contact.html">
+      <!-- 03 — Elevate Building & Contracting -->
+      <a class="pf-card reveal" href="https://elevate-ivory-five.vercel.app" target="_blank" rel="noopener">
         <div class="pf-media">
-          <div class="pf-browser pf--plumber">
+          <div class="pf-browser pf--elevate">
             <div class="pf-browser__chrome">
               <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-              <span class="url">centralcoast-plumbing.com.au</span>
+              <span class="url">elevatebuilding.com.au</span>
             </div>
             <div class="pf-browser__body">
-              <div class="pf-sketch pf-sketch--dark">
-                <div class="pf-sketch__top">
-                  <span>CC Plumbing</span>
-                  <span class="nav-bits"><span>Services</span><span>Call</span></span>
-                </div>
-                <div class="pf-sketch__hero">
-                  <h3>Blocked drains?<br/><em>Burst pipes?</em></h3>
-                  <p>24/7 emergency plumbing — Central Coast wide.</p>
-                  <div class="pf-sketch__bar">
-                    <span class="button solid">Book now →</span>
-                  </div>
-                </div>
+              <div class="pf-iframe-wrap">
+                <iframe src="https://elevate-ivory-five.vercel.app" title="Elevate Building & Contracting website" loading="lazy" scrolling="no" tabindex="-1"></iframe>
               </div>
             </div>
           </div>
@@ -403,126 +377,13 @@
         <div class="pf-meta">
           <div class="pf-meta__tags">
             <span class="num">— 03</span>
-            <span>Landing page</span>
-            <span>SEO</span>
-          </div>
-          <h3 class="pf-meta__title">CC Plumbing — <span class="italic">Emergency Services</span></h3>
-          <p class="pf-meta__desc">A two-person plumbing crew needed a site built around one thing: getting the phone to ring. Single-page, ranked in 6 weeks for "plumber Gosford".</p>
-          <span class="pf-meta__link">View case study →</span>
-        </div>
-      </a>
-
-      <!-- 04 — Salon -->
-      <a class="pf-card reveal pf--square" href="Contact.html">
-        <div class="pf-media">
-          <div class="pf-browser pf--salon">
-            <div class="pf-browser__chrome">
-              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-              <span class="url">linden.studio</span>
-            </div>
-            <div class="pf-browser__body">
-              <div class="pf-sketch pf-sketch--light">
-                <div class="pf-sketch__top">
-                  <span>Linden Studio</span>
-                  <span class="nav-bits"><span>Services</span><span>Stylists</span><span>Book</span></span>
-                </div>
-                <div class="pf-sketch__hero">
-                  <h3>Slow hair,<br/><em>by hand.</em></h3>
-                  <p>An East Gosford studio for cut, colour, and quiet mornings.</p>
-                  <div class="pf-sketch__bar">
-                    <span class="button" style="background:rgba(28,24,20,0.85);color:rgba(242,227,213,1);">Book appointment →</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="pf-meta">
-          <div class="pf-meta__tags">
-            <span class="num">— 04</span>
             <span>Full website</span>
-            <span>Branding</span>
-            <span>WordPress</span>
-          </div>
-          <h3 class="pf-meta__title">Linden Studio — <span class="italic">Hair &amp; Beauty</span></h3>
-          <p class="pf-meta__desc">Branding from scratch and a 5-page website for a new East Gosford salon. Booking integration and quiet, photo-led editorial feel.</p>
-          <span class="pf-meta__link">View case study →</span>
-        </div>
-      </a>
-
-      <!-- 05 — Coach -->
-      <a class="pf-card reveal" href="Contact.html">
-        <div class="pf-media">
-          <div class="pf-browser pf--coach">
-            <div class="pf-browser__chrome">
-              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-              <span class="url">marleyparker.com</span>
-            </div>
-            <div class="pf-browser__body">
-              <div class="pf-sketch pf-sketch--dark">
-                <div class="pf-sketch__top">
-                  <span>Marley Parker</span>
-                  <span class="nav-bits"><span>Work</span><span>Coaching</span><span>Hi.</span></span>
-                </div>
-                <div class="pf-sketch__hero">
-                  <h3>Coaching for<br/><em>founders</em> &amp; teams.</h3>
-                  <p>1:1 and group programs — Sydney + remote.</p>
-                  <div class="pf-sketch__bar">
-                    <span class="button solid">Apply for coaching →</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="pf-meta">
-          <div class="pf-meta__tags">
-            <span class="num">— 05</span>
-            <span>Personal brand</span>
             <span>Custom HTML</span>
+            <span>Building</span>
           </div>
-          <h3 class="pf-meta__title">Marley Parker — <span class="italic">Executive Coach</span></h3>
-          <p class="pf-meta__desc">A bold, editorial personal-brand site for a founder coach. Single-page application form, custom-built in HTML/CSS/JS.</p>
-          <span class="pf-meta__link">View case study →</span>
-        </div>
-      </a>
-
-      <!-- 06 — Builder -->
-      <a class="pf-card reveal pf--wide" href="Contact.html">
-        <div class="pf-media">
-          <div class="pf-browser pf--builder">
-            <div class="pf-browser__chrome">
-              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-              <span class="url">heggie-build.com.au</span>
-            </div>
-            <div class="pf-browser__body">
-              <div class="pf-sketch pf-sketch--dark">
-                <div class="pf-sketch__top">
-                  <span>Heggie Build Co.</span>
-                  <span class="nav-bits"><span>Projects</span><span>About</span><span>Contact</span></span>
-                </div>
-                <div class="pf-sketch__hero">
-                  <h3><em>Considered</em><br/>builds for the<br/>Central Coast.</h3>
-                  <p>Custom homes, renovations &amp; small extensions — by appointment.</p>
-                  <div class="pf-sketch__bar">
-                    <span class="button solid">Start a project →</span>
-                    <span class="button">See past work</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="pf-meta">
-          <div class="pf-meta__tags">
-            <span class="num">— 06</span>
-            <span>Website redesign</span>
-            <span>WordPress</span>
-            <span>SEO</span>
-          </div>
-          <h3 class="pf-meta__title">Heggie Build Co. — <span class="italic">Builder</span></h3>
-          <p class="pf-meta__desc">A second-generation Central Coast builder with great work but a 2012-era site. Editorial redesign with project gallery, lead form, and clean mobile experience.</p>
-          <span class="pf-meta__link">View case study →</span>
+          <h3 class="pf-meta__title">Elevate Building — <span class="italic">Builder &amp; Renovations</span></h3>
+          <p class="pf-meta__desc">Central Coast builder specialising in renovations, extensions, knockdown rebuilds and commercial fitouts. Built a clean, honest site with a project gallery, detailed services, and a prominent free quote flow — built around the ethos: built on honesty, delivered properly.</p>
+          <span class="pf-meta__link">Visit live site →</span>
         </div>
       </a>
 
@@ -576,10 +437,10 @@
         <h4>Services</h4>
         <ul>
           <li><a href="Services.html">Landing Pages</a></li>
-          <li><a href="Services.html">Website Redesigns</a></li>
-          <li><a href="Services.html">SEO</a></li>
-          <li><a href="Services.html">Logo &amp; Branding</a></li>
-          <li><a href="Services.html">Care Plans</a></li>
+          <li><a href="Services.html">Full Websites</a></li>
+          <li><a href="Services.html">Redesigns</a></li>
+          <li><a href="Services.html">Branding &amp; Logo</a></li>
+          <li><a href="Services.html">Care Plans &amp; Updates</a></li>
         </ul>
       </div>
       <div class="foot__col">
@@ -592,7 +453,7 @@
       </div>
     </div>
     <div class="foot__copy">
-      <span>© 2025 Samuel Meredith. All rights reserved.</span>
+      <span>© 2026 Samuel Meredith. All rights reserved.</span>
       <em>Made on the Central Coast.</em>
     </div>
   </div>
