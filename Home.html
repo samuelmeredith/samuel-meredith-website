@@ -501,11 +501,16 @@
     gap: 0; border-top: 1px solid var(--rule);
   }
   .who__col {
-    padding: 48px 36px 48px 0;
     border-right: 1px solid var(--rule);
+    display: flex; flex-direction: column;
   }
-  .who__col:last-child { border-right: none; padding-right: 0; }
-  .who__col:not(:first-child) { padding-left: 36px; }
+  .who__col:last-child { border-right: none; }
+  .who__col-text {
+    padding: 28px 36px 48px;
+    flex: 1;
+  }
+  .who__col:first-child .who__col-text { padding-left: 0; }
+  .who__col:last-child .who__col-text { padding-right: 0; }
   .who__num {
     font-family: var(--display); font-style: italic;
     font-size: 14px; color: var(--terra); margin-bottom: 20px;
@@ -519,10 +524,8 @@
   .who__body { font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
 
   .who__preview {
-    border: 1px solid var(--rule);
-    border-radius: 6px;
+    border-bottom: 1px solid var(--rule);
     overflow: hidden;
-    margin-bottom: 28px;
   }
   .who__preview-chrome {
     background: var(--cream-2);
@@ -535,12 +538,12 @@
     display: block;
   }
   .who__preview-body {
-    position: relative; overflow: hidden; height: 180px;
+    position: relative; overflow: hidden; height: 200px;
   }
   .who__preview-body iframe {
     position: absolute; top: 0; left: 0;
     width: 1280px; height: 900px;
-    transform: scale(0.28); transform-origin: top left;
+    transform: scale(0.32); transform-origin: top left;
     border: none; pointer-events: none;
   }
   .who__preview--elevate { background: #1C2D4A; }
@@ -549,9 +552,9 @@
   @media (max-width: 860px) {
     .who { min-height: auto; padding: 80px 0; }
     .who__grid { grid-template-columns: 1fr; }
-    .who__col { border-right: none; border-bottom: 1px solid var(--rule); padding: 36px 0; }
-    .who__col:not(:first-child) { padding-left: 0; }
+    .who__col { border-right: none; border-bottom: 1px solid var(--rule); }
     .who__col:last-child { border-bottom: none; }
+    .who__col-text { padding: 24px 0 36px; }
   }
 
   /* ---------- PROCESS ---------- */
@@ -798,9 +801,11 @@
             <iframe src="https://elevate-ivory-five.vercel.app" title="Elevate Building website" loading="lazy" scrolling="no" tabindex="-1"></iframe>
           </div>
         </div>
-        <div class="who__num">— 01 /</div>
-        <h3 class="who__title">Tradies <span class="italic">&amp;</span> Service Providers</h3>
-        <p class="who__body">Plumbers, electricians, builders, landscapers — a site that shows up on Google and turns visitors into calls.</p>
+        <div class="who__col-text">
+          <div class="who__num">— 01 /</div>
+          <h3 class="who__title">Tradies <span class="italic">&amp;</span> Service Providers</h3>
+          <p class="who__body">Plumbers, electricians, builders, landscapers — a site that shows up on Google and turns visitors into calls.</p>
+        </div>
       </div>
       <div class="who__col">
         <div class="who__preview">
@@ -811,9 +816,11 @@
             <iframe src="https://heart-link-supports.vercel.app" title="Heart Link Supports website" loading="lazy" scrolling="no" tabindex="-1"></iframe>
           </div>
         </div>
-        <div class="who__num">— 02 /</div>
-        <h3 class="who__title">Small <span class="italic">Local</span> Businesses</h3>
-        <p class="who__body">Cafés, salons, health practitioners, retailers — a website that reflects the quality of your business.</p>
+        <div class="who__col-text">
+          <div class="who__num">— 02 /</div>
+          <h3 class="who__title">Small <span class="italic">Local</span> Businesses</h3>
+          <p class="who__body">Cafés, salons, health practitioners, retailers — a website that reflects the quality of your business.</p>
+        </div>
       </div>
       <div class="who__col">
         <div class="who__preview">
@@ -824,9 +831,11 @@
             <iframe src="https://sophie-site-six.vercel.app" title="Sophie Meredith website" loading="lazy" scrolling="no" tabindex="-1"></iframe>
           </div>
         </div>
-        <div class="who__num">— 03 /</div>
-        <h3 class="who__title">Personal Brands <span class="italic">&amp;</span> Creators</h3>
-        <p class="who__body">Photographers, coaches, freelancers — your site is your first impression. Let's make it count.</p>
+        <div class="who__col-text">
+          <div class="who__num">— 03 /</div>
+          <h3 class="who__title">Personal Brands <span class="italic">&amp;</span> Creators</h3>
+          <p class="who__body">Photographers, coaches, freelancers — your site is your first impression. Let's make it count.</p>
+        </div>
       </div>
     </div>
   </div>
