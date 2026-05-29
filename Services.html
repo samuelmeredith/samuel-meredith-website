@@ -53,10 +53,13 @@
     .pagehead__plate-cell:last-child { border-bottom: none; }
   }
 
+  /* Tighter pagehead for services page */
+  .pagehead { padding: 120px 0 50px; }
+
   /* ---------- SERVICES LIST (expanded variant) ---------- */
   .services {
     background: var(--cream-2);
-    padding: 100px 0 120px;
+    padding: 60px 0 80px;
   }
   .svc-list { border-top: 1px solid var(--ink); margin: 0; padding: 0; list-style: none; }
   .svc {
@@ -170,7 +173,7 @@
   /* ---------- CUSTOM PROJECTS BLOCK ---------- */
   .custom {
     background: var(--cream);
-    padding: 130px 0 130px;
+    padding: 70px 0 80px;
   }
   .custom__grid {
     display: grid; grid-template-columns: 0.9fr 1fr; gap: 80px;
@@ -310,7 +313,7 @@
   <div class="wrap">
     <ul class="svc-list reveal" id="svc-list">
 
-      <li class="svc" aria-expanded="true">
+      <li class="svc" aria-expanded="false">
         <button class="svc__row" aria-controls="svc-1">
           <span class="svc__num">01</span>
           <span class="svc__name"><span class="italic">Landing</span> <span class="caps">Page</span></span>
@@ -508,29 +511,6 @@
   </div>
 </section>
 
-<!-- FINAL CTA BAND -->
-<section class="cta-band" data-screen-label="Final CTA">
-  <div class="cta-band__corner">
-    <span class="dot"></span>
-    <span>Currently booking</span>
-  </div>
-  <div class="wrap">
-    <div class="cta-band__grid">
-      <div class="reveal">
-        <span class="eyebrow on-dark">— Next step</span>
-        <h2 class="cta-band__title">
-          Let's <span class="italic">build</span><br/>
-          <span class="caps">something good.</span>
-        </h2>
-      </div>
-      <div class="reveal">
-        <p class="cta-band__body">Tell me about your project and I'll get back to you within one business day. No obligation, just a conversation about what you need.</p>
-        <a href="Contact.html" class="btn btn--terra">Start a project <span class="arrow">→</span></a>
-        <div class="cta-band__direct">or email <a href="mailto:samuelmeredith333@gmail.com">samuelmeredith333@gmail.com</a></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- FOOTER -->
 <footer class="foot" data-screen-label="Footer">
@@ -568,14 +548,10 @@
 
 <script src="styles/site.js"></script>
 <script>
-  // Accordion (allow multiple open by default; first is open on load)
+  // Accordion — all closed by default
   document.querySelectorAll('.svc').forEach(item => {
     const btn = item.querySelector('.svc__row');
     const panel = item.querySelector('.svc__panel');
-    // initialise: open ones have max-height auto via scrollHeight after layout
-    if (item.getAttribute('aria-expanded') === 'true') {
-      requestAnimationFrame(() => { panel.style.maxHeight = panel.scrollHeight + 'px'; });
-    }
     btn.addEventListener('click', () => {
       const isOpen = item.getAttribute('aria-expanded') === 'true';
       if (isOpen) {
