@@ -25,6 +25,20 @@
 
     document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
 
+    // Stagger: observe container, fire children in sequence
+    var staggerIo = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          var delay = parseInt(e.target.dataset.staggerDelay || 70, 10);
+          Array.from(e.target.children).forEach(function(child, i) {
+            setTimeout(function() { child.classList.add('in'); }, i * delay);
+          });
+          staggerIo.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-stagger]').forEach(function(el) { staggerIo.observe(el); });
+
     // Staggered reveal for services list rows
     var svcList = document.querySelector('.svc-list');
     if (svcList) {
@@ -42,6 +56,7 @@
     }
   } else {
     document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('in'); });
+    document.querySelectorAll('[data-stagger] > *').forEach(function(el) { el.classList.add('in'); });
     document.querySelectorAll('.svc').forEach(function(el) { el.classList.add('in'); });
   }
 
