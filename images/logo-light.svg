@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 76" width="240" height="76" role="img" aria-label="Samuel Meredith Web Design">
+
+  <!-- Samuel — italic serif, large -->
+  <text
+    x="2" y="52"
+    font-family="Georgia, 'Cormorant Garamond', serif"
+    font-style="italic"
+    font-size="50"
+    font-weight="400"
+    fill="#1C1814"
+    letter-spacing="-0.5">Samuel</text>
+
+  <!-- Terracotta rule -->
+  <rect x="2" y="58" width="40" height="0.75" fill="#C4622D"/>
+
+  <!-- MEREDITH — tracked small caps -->
+  <text
+    x="2" y="72"
+    font-family="Georgia, 'Cormorant Garamond', serif"
+    font-style="normal"
+    font-size="12"
+    font-weight="400"
+    fill="#423A30"
+    letter-spacing="4.8">MEREDITH</text>
+
+</svg>
