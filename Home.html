@@ -526,13 +526,19 @@
   .who__preview {
     border-bottom: 1px solid var(--rule);
     overflow: hidden;
+    display: block;
+    text-decoration: none;
+    transition: border-color 260ms ease;
   }
+  .who__preview:hover { border-color: var(--ink); }
   .who__preview-chrome {
     background: var(--cream-2);
     border-bottom: 1px solid var(--rule);
     padding: 8px 12px;
     display: flex; gap: 5px; align-items: center;
+    transition: background 260ms ease;
   }
+  .who__preview:hover .who__preview-chrome { background: var(--cream); }
   .who__preview-dot {
     width: 8px; height: 8px; border-radius: 50%; background: var(--rule);
     display: block;
@@ -543,8 +549,24 @@
   .who__preview-body iframe {
     position: absolute; top: 0; left: 0;
     width: 1280px; height: 900px;
-    transform: scale(0.32); transform-origin: top left;
+    transform-origin: top left;
     border: none; pointer-events: none;
+    transition: transform 400ms ease;
+  }
+  .who__preview-overlay {
+    position: absolute; inset: 0; z-index: 2;
+    background: rgba(28,24,20,0.72);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    transition: opacity 260ms ease;
+  }
+  .who__preview:hover .who__preview-overlay { opacity: 1; }
+  .who__preview-overlay span {
+    font-family: var(--sans);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 500; color: var(--cream);
+    border-bottom: 1px solid rgba(250,247,242,0.5);
+    padding-bottom: 4px;
   }
   .who__preview--elevate { background: #1C2D4A; }
   .who__preview--heartlink { background: #EEF4F0; }
@@ -749,14 +771,15 @@
     </div>
     <div class="who__grid reveal">
       <div class="who__col">
-        <div class="who__preview">
+        <a class="who__preview" href="Portfolio.html">
           <div class="who__preview-chrome">
             <span class="who__preview-dot"></span><span class="who__preview-dot"></span><span class="who__preview-dot"></span>
           </div>
           <div class="who__preview-body who__preview--elevate">
             <iframe src="https://elevate-ivory-five.vercel.app" title="Elevate Building website" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+            <div class="who__preview-overlay"><span>View portfolio →</span></div>
           </div>
-        </div>
+        </a>
         <div class="who__col-text">
           <div class="who__num">— 01 /</div>
           <h3 class="who__title">Tradies <span class="italic">&amp;</span> Service Providers</h3>
@@ -764,14 +787,15 @@
         </div>
       </div>
       <div class="who__col">
-        <div class="who__preview">
+        <a class="who__preview" href="Portfolio.html">
           <div class="who__preview-chrome">
             <span class="who__preview-dot"></span><span class="who__preview-dot"></span><span class="who__preview-dot"></span>
           </div>
           <div class="who__preview-body who__preview--heartlink">
             <iframe src="https://heart-link-supports.vercel.app" title="Heart Link Supports website" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+            <div class="who__preview-overlay"><span>View portfolio →</span></div>
           </div>
-        </div>
+        </a>
         <div class="who__col-text">
           <div class="who__num">— 02 /</div>
           <h3 class="who__title">Small <span class="italic">Local</span> Businesses</h3>
@@ -779,14 +803,15 @@
         </div>
       </div>
       <div class="who__col">
-        <div class="who__preview">
+        <a class="who__preview" href="Portfolio.html">
           <div class="who__preview-chrome">
             <span class="who__preview-dot"></span><span class="who__preview-dot"></span><span class="who__preview-dot"></span>
           </div>
           <div class="who__preview-body who__preview--sophie">
             <iframe src="https://sophie-site-six.vercel.app" title="Sophie Meredith website" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+            <div class="who__preview-overlay"><span>View portfolio →</span></div>
           </div>
-        </div>
+        </a>
         <div class="who__col-text">
           <div class="who__num">— 03 /</div>
           <h3 class="who__title">Personal Brands <span class="italic">&amp;</span> Creators</h3>
@@ -970,6 +995,19 @@
     if (navOverlay) navOverlay.addEventListener('click', closeMenu);
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
   }
+
+  // Dynamic iframe scale — fills the preview container width exactly
+  function scaleWhoPreview() {
+    document.querySelectorAll('.who__preview-body').forEach(function(body) {
+      const iframe = body.querySelector('iframe');
+      if (!iframe) return;
+      const scale = body.offsetWidth / 1280;
+      iframe.style.transform = 'scale(' + scale + ')';
+      iframe.style.transformOrigin = 'top left';
+    });
+  }
+  scaleWhoPreview();
+  window.addEventListener('resize', scaleWhoPreview);
 </script>
 </body>
 </html>
