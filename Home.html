@@ -610,50 +610,6 @@
   @media (max-width: 1020px) { .step-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 520px)  { .step-grid { grid-template-columns: 1fr; } }
 
-  /* ---------- FINAL CTA ---------- */
-  .final {
-    background: var(--final-bg);
-    color: var(--final-fg);
-    padding: 80px 0 90px;
-    position: relative;
-    overflow: hidden;
-    transition: background 320ms ease, color 320ms ease;
-  }
-  .final__grid {
-    display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; align-items: end;
-  }
-  .final__title {
-    font-family: var(--display);
-    font-size: clamp(44px, 5.5vw, 80px);
-    line-height: 0.95;
-    font-weight: 400;
-    letter-spacing: -0.025em;
-    margin: 24px 0 0;
-    color: var(--final-fg);
-  }
-  .final__title .italic { font-style: italic; }
-  .final__title .caps { font-family: var(--sans); text-transform: uppercase; font-weight: 500; font-size: 0.55em; letter-spacing: 0.01em; }
-  .final__title .script { font-family: var(--display); font-style: italic; font-size: 1em; }
-  .final__body {
-    font-size: 16px; line-height: 1.6; color: var(--final-fg-soft); max-width: 380px; margin: 0 0 40px; font-weight: 300;
-  }
-  .final__cta-row { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
-  .final__direct {
-    font-family: var(--display); font-style: italic; font-size: 18px; color: var(--final-eyebrow);
-  }
-  .final__direct a { color: var(--final-fg); border-bottom: 1px solid var(--final-eyebrow); padding-bottom: 2px; }
-  .final__direct a:hover { border-color: var(--final-fg); }
-  .final__corner {
-    position: absolute; right: 56px; top: 56px;
-    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--final-eyebrow); font-weight: 500;
-    display: flex; align-items: center; gap: 12px;
-  }
-  .final__corner .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--terra); }
-  @media (max-width: 860px) {
-    .final__grid { grid-template-columns: 1fr; gap: 40px; }
-    .final__corner { right: 24px; top: 24px; }
-  }
-
   /* ---------- FOOTER ---------- */
   .foot {
     background: var(--choco-deep);
@@ -910,31 +866,6 @@
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="final" data-screen-label="Final CTA">
-  <div class="final__corner">
-    <span class="dot"></span>
-    <span>Currently booking</span>
-  </div>
-  <div class="wrap">
-    <div class="final__grid">
-      <div class="reveal">
-        <span class="eyebrow on-dark">— Final word</span>
-        <h2 class="final__title">
-          Ready to <span class="script">get</span><br/>
-          <span class="caps">started?</span>
-        </h2>
-      </div>
-      <div class="reveal final__cta-row">
-        <p class="final__body">
-          Got a project in mind, or not sure where to start? Drop me a message and we'll figure it out from there.
-        </p>
-        <a href="Contact.html" class="btn btn--terra">Get in touch <span class="arrow">→</span></a>
-        <span class="final__direct">or email <a href="mailto:samuelmeredith333@gmail.com">samuelmeredith333@gmail.com</a></span>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- FOOTER -->
 <footer class="foot" data-screen-label="Footer">
