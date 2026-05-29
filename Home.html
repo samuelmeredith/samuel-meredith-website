@@ -812,13 +812,17 @@
 
   .step-grid {
     display: grid; grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--ink); border-left: 1px solid var(--ink);
+    border: 1px solid var(--ink);
+    margin-bottom: 80px;
   }
   .step-card {
     padding: 40px 32px 44px;
     border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink);
     transition: background 220ms ease;
   }
+  .step-card:last-child,
+  .step-card:nth-last-child(-n+3) { border-bottom: none; }
+  .step-card:nth-child(3n) { border-right: none; }
   .step-card:hover { background: var(--cream); }
   .step-card__num {
     font-family: var(--display); font-style: italic; font-size: 14px;
