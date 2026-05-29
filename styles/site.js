@@ -1,30 +1,14 @@
-// Shared site behaviours: Lenis smooth scroll + nav + reveal + mobile drawer
+// Shared site behaviours: nav scroll state + reveal-on-scroll + mobile drawer
 (function() {
-
-  // ---------- LENIS SMOOTH SCROLL ----------
-  var lenis;
-  if (typeof Lenis !== 'undefined') {
-    lenis = new Lenis({
-      lerp: 0.08,
-      smoothWheel: true,
-    });
-    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-  }
 
   // ---------- NAV SCROLL STATE ----------
   var nav = document.getElementById('nav');
   if (nav) {
-    var onScroll = function(scroll) {
-      var y = (scroll !== undefined) ? scroll : window.scrollY;
-      if (y > 60) nav.classList.add('scrolled');
+    var onScroll = function() {
+      if (window.scrollY > 60) nav.classList.add('scrolled');
       else nav.classList.remove('scrolled');
     };
-    if (lenis) {
-      lenis.on('scroll', function(e) { onScroll(e.scroll); });
-    } else {
-      window.addEventListener('scroll', function() { onScroll(); }, { passive: true });
-    }
+    window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
 
@@ -47,11 +31,8 @@
       var svcIo = new IntersectionObserver(function(entries) {
         entries.forEach(function(e) {
           if (e.isIntersecting) {
-            var items = svcList.querySelectorAll('.svc');
-            items.forEach(function(item, i) {
-              setTimeout(function() {
-                item.classList.add('in');
-              }, i * 80);
+            svcList.querySelectorAll('.svc').forEach(function(item, i) {
+              setTimeout(function() { item.classList.add('in'); }, i * 80);
             });
             svcIo.unobserve(e.target);
           }
@@ -77,7 +58,6 @@
       navToggle.setAttribute('aria-expanded', 'true');
       navDrawer.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      if (lenis) lenis.stop();
     };
     var closeMenu = function() {
       navDrawer.classList.remove('open');
@@ -85,7 +65,6 @@
       navToggle.setAttribute('aria-expanded', 'false');
       navDrawer.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
-      if (lenis) lenis.start();
     };
     navToggle.addEventListener('click', openMenu);
     if (navClose) navClose.addEventListener('click', closeMenu);

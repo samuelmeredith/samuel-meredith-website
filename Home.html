@@ -35,7 +35,6 @@
   gtag('js', new Date());
   gtag('config', 'G-SFJJJS3ERM');
 </script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
@@ -934,29 +933,13 @@
 </footer>
 
 <script>
-  // Lenis smooth scroll
-  let lenis;
-  if (typeof Lenis !== 'undefined') {
-    lenis = new Lenis({
-      lerp: 0.08,
-      smoothWheel: true,
-    });
-    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-  }
-
   // Nav scroll behaviour
   const nav = document.getElementById('nav');
-  const onScroll = (scroll) => {
-    const y = scroll !== undefined ? scroll : window.scrollY;
-    if (y > 60) nav.classList.add('scrolled');
+  const onScroll = () => {
+    if (window.scrollY > 60) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
   };
-  if (lenis) {
-    lenis.on('scroll', (e) => onScroll(e.scroll));
-  } else {
-    window.addEventListener('scroll', () => onScroll(), { passive: true });
-  }
+  window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
   // Services accordion
@@ -1005,7 +988,6 @@
       navToggle.setAttribute('aria-expanded', 'true');
       navDrawer.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      if (lenis) lenis.stop();
     };
     const closeMenu = () => {
       navDrawer.classList.remove('open');
@@ -1013,7 +995,6 @@
       navToggle.setAttribute('aria-expanded', 'false');
       navDrawer.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
-      if (lenis) lenis.start();
     };
     navToggle.addEventListener('click', openMenu);
     if (navClose) navClose.addEventListener('click', closeMenu);
