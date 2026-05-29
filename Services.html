@@ -70,11 +70,26 @@
     background: var(--cream-2);
     padding: 80px 0 100px;
   }
+  .services__layout {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 0 60px;
+    align-items: start;
+  }
+  .services__sidebar {
+    position: sticky;
+    top: 100px;
+    padding-top: 4px;
+  }
   .services__header {
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 52px;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+  @media (max-width: 760px) {
+    .services__layout { grid-template-columns: 1fr; }
+    .services__sidebar { position: static; margin-bottom: 36px; }
   }
   .services__label {
     font-family: var(--sans);
@@ -342,11 +357,15 @@
 <!-- SERVICES — full expandable list -->
 <section class="services" data-screen-label="Services list">
   <div class="wrap">
-    <div class="services__header reveal">
-      <span class="services__label">— Six services</span>
-      <span class="services__note">All enquiries welcome</span>
-    </div>
-    <ul class="svc-list reveal" id="svc-list">
+    <div class="services__layout">
+      <div class="services__sidebar">
+        <div class="services__header">
+          <span class="services__label">— Six services</span>
+          <span class="services__note">All enquiries welcome</span>
+        </div>
+      </div>
+      <div>
+    <ul class="svc-list" id="svc-list">
 
       <li class="svc" aria-expanded="false">
         <button class="svc__row" aria-controls="svc-1">
@@ -527,6 +546,8 @@
       </li>
 
     </ul>
+      </div>
+    </div>
   </div>
 </section>
 
