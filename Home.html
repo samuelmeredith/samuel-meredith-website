@@ -469,99 +469,40 @@
 
   /* ---------- WHO I HELP ---------- */
   .who {
-    padding: 140px 0 120px;
     background: var(--cream);
+    border-bottom: 1px solid var(--rule);
   }
-  .section-head {
-    display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px;
-    align-items: end;
-    margin-bottom: 90px;
-  }
-  .section-head__label { padding-top: 6px; }
-  .section-head__title {
-    font-family: var(--display);
-    font-size: clamp(38px, 4.6vw, 64px);
-    line-height: 1.02;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    margin: 0;
-    color: var(--ink);
-    text-wrap: pretty;
-  }
-  .section-head__title .italic { font-style: italic; font-weight: 400; }
-  .section-head__title .caps {
-    font-family: var(--sans);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.01em;
-    font-size: 0.6em;
-  }
-  .section-head__title .script {
-    font-family: var(--display);
-    font-style: italic;
-    font-size: 1em;
-  }
-  @media (max-width: 860px) {
-    .section-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 60px; }
-  }
-
-  .who__grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+  .who__inner {
+    display: grid;
+    grid-template-columns: 160px repeat(3, 1fr);
     border-top: 1px solid var(--rule);
+  }
+  .who__label-cell {
+    padding: 36px 32px 36px 0;
+    border-right: 1px solid var(--rule);
+    display: flex; align-items: flex-start;
   }
   .who__col {
-    padding: 48px 36px 12px 0;
+    padding: 36px 32px;
     border-right: 1px solid var(--rule);
   }
-  .who__col:last-child { border-right: none; padding-right: 0; }
-  .who__col:not(:first-child) { padding-left: 36px; }
+  .who__col:last-child { border-right: none; }
   .who__num {
-    font-family: var(--display);
-    font-style: italic;
-    font-size: 14px;
-    color: var(--terra);
-    margin-bottom: 28px;
+    font-family: var(--display); font-style: italic;
+    font-size: 13px; color: var(--terra);
+    display: block; margin-bottom: 12px;
   }
   .who__title {
-    font-family: var(--display);
-    font-size: 28px;
-    font-weight: 500;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    margin: 0 0 18px;
-    color: var(--ink);
+    font-family: var(--display); font-size: 20px;
+    font-weight: 400; letter-spacing: -0.01em;
+    line-height: 1.15; margin: 0 0 10px; color: var(--ink);
   }
   .who__title .italic { font-style: italic; font-weight: 400; }
-  .who__body {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--ink-soft);
-    font-weight: 400;
-  }
-  .who__lede {
-    font-family: var(--display);
-    font-size: 22px;
-    line-height: 1.45;
-    color: var(--ink);
-    font-weight: 400;
-    max-width: 760px;
-    margin: 0 0 50px;
-  }
-  .who__lede .italic { font-style: italic; }
-  .who__note {
-    margin-top: 60px;
-    display: flex; justify-content: space-between; align-items: center;
-    border-top: 1px solid var(--rule);
-    padding-top: 24px;
-    font-size: 13px;
-    color: var(--ink-soft);
-  }
-  .who__note em { font-family: var(--display); font-style: italic; font-size: 18px; color: var(--ink); }
+  .who__body { font-size: 13px; line-height: 1.6; color: var(--ink-soft); margin: 0; }
   @media (max-width: 860px) {
-    .who__grid { grid-template-columns: 1fr; }
-    .who__col { border-right: none; border-bottom: 1px solid var(--rule); padding: 36px 0; }
-    .who__col:not(:first-child) { padding-left: 0; }
+    .who__inner { grid-template-columns: 1fr; }
+    .who__label-cell { display: none; }
+    .who__col { border-right: none; border-bottom: 1px solid var(--rule); }
     .who__col:last-child { border-bottom: none; }
   }
 
@@ -791,40 +732,25 @@
 <!-- WHO I HELP -->
 <section class="who" data-screen-label="Who I Help">
   <div class="wrap">
-    <div class="section-head reveal">
-      <div class="section-head__label">
-        <span class="eyebrow">— Who I Help</span>
+    <div class="who__inner reveal">
+      <div class="who__label-cell">
+        <span class="eyebrow">— Who<br/>I Help</span>
       </div>
-      <h2 class="section-head__title">
-        Built for people who are <span class="script">brilliant</span> at <span class="caps">what they do</span> — <span class="italic">not web design.</span>
-      </h2>
-    </div>
-
-    <p class="who__lede reveal">
-      Whether you're a tradie who needs a site that wins jobs, a small business wanting to look more professional online, or a personal brand ready to put yourself out there — I make the whole process <span class="italic">easy, affordable,</span> and actually kind of enjoyable. No tech jargon. No hidden fees. Just a clean, fast website that represents you well.
-    </p>
-
-    <div class="who__grid reveal">
       <div class="who__col">
-        <div class="who__num">— 01 /</div>
+        <span class="who__num">— 01 /</span>
         <h3 class="who__title">Tradies <span class="italic">&amp;</span> Service Providers</h3>
-        <p class="who__body">Plumbers, electricians, builders, landscapers — I'll get you online with a site that shows up on Google and turns visitors into calls.</p>
+        <p class="who__body">Plumbers, electricians, builders, landscapers — a site that shows up on Google and turns visitors into calls.</p>
       </div>
       <div class="who__col">
-        <div class="who__num">— 02 /</div>
+        <span class="who__num">— 02 /</span>
         <h3 class="who__title">Small <span class="italic">Local</span> Businesses</h3>
-        <p class="who__body">Cafés, salons, health practitioners, retailers — your website should reflect the quality of your business. Let's make sure it does.</p>
+        <p class="who__body">Cafés, salons, health practitioners, retailers — a website that reflects the quality of your business.</p>
       </div>
       <div class="who__col">
-        <div class="who__num">— 03 /</div>
+        <span class="who__num">— 03 /</span>
         <h3 class="who__title">Personal Brands <span class="italic">&amp;</span> Creators</h3>
         <p class="who__body">Photographers, coaches, freelancers — your site is your first impression. Let's make it count.</p>
       </div>
-    </div>
-
-    <div class="who__note reveal">
-      <span>Not sure where you fit?</span>
-      <em>Just get in touch and we'll work it out.  →</em>
     </div>
   </div>
 </section>
