@@ -789,84 +789,10 @@
     .name-band__eyebrow, .name-band__type { padding-left: 24px; padding-right: 24px; }
   }
 
-  /* ---------- ABOUT TEASER ---------- */
-  .about {
-    background: var(--cream);
-    padding: 150px 0 140px;
-    position: relative;
-  }
-  .about__grid {
-    display: grid;
-    grid-template-columns: 0.85fr 1fr;
-    gap: 90px;
-    align-items: start;
-  }
-  .about__media {
-    aspect-ratio: 4 / 5;
-    position: relative;
-    transform: translateY(0);
-  }
-  .about__media .portrait { height: 100%; }
-  .about__floating {
-    position: absolute;
-    right: -50px; bottom: 50px;
-    width: 180px;
-    aspect-ratio: 3/4;
-    border: 6px solid var(--cream);
-  }
-  .about__copy { padding-top: 40px; }
-  .about__kicker {
-    display: flex; align-items: center; gap: 14px;
-    color: var(--terra);
-    margin-bottom: 28px;
-  }
-  .about__kicker .line { width: 36px; height: 1px; background: var(--terra); }
-  .about__kicker .label {
-    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500;
-  }
-  .about__title {
-    font-family: var(--display);
-    font-size: clamp(40px, 5vw, 72px);
-    line-height: 1;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    margin: 0 0 32px;
-    color: var(--ink);
-    text-wrap: pretty;
-  }
-  .about__title .italic { font-style: italic; }
-  .about__title .caps { font-family: var(--sans); font-weight: 500; text-transform: uppercase; font-size: 0.58em; letter-spacing: 0.01em; }
-  .about__body {
-    font-size: 17px;
-    line-height: 1.65;
-    color: var(--ink-soft);
-    max-width: 520px;
-    margin: 0 0 24px;
-  }
-  .about__body strong { color: var(--ink); font-weight: 500; }
-  .about__sig {
-    margin-top: 36px;
-    display: flex; align-items: center; gap: 28px;
-    flex-wrap: wrap;
-  }
-  .about__sig-name {
-    font-family: var(--display); font-style: italic; font-size: 36px; color: var(--ink); line-height: 1;
-  }
-  .about__sig-meta {
-    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500;
-    padding-left: 28px; border-left: 1px solid var(--rule);
-  }
-  .about__cta { margin-top: 48px; }
-  @media (max-width: 940px) {
-    .about__grid { grid-template-columns: 1fr; gap: 40px; }
-    .about__floating { display: none; }
-    .about__copy { padding-top: 0; }
-  }
-
   /* ---------- PROCESS ---------- */
   .process {
     background: var(--cream-2);
-    padding: 140px 0 130px;
+    padding: 140px 0 0;
   }
   .process__head {
     display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: end;
@@ -884,31 +810,62 @@
   }
   @media (max-width: 860px) { .process__head { grid-template-columns: 1fr; gap: 24px; } }
 
-  .step-list { border-top: 1px solid var(--ink); list-style: none; margin: 0; padding: 0; }
-  .step {
-    display: grid;
-    grid-template-columns: 48px 200px 1fr auto;
-    gap: 36px;
-    padding: 30px 0;
-    border-bottom: 1px solid var(--rule);
-    align-items: baseline;
+  .step-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--ink); border-left: 1px solid var(--ink);
   }
-  .step__num { font-family: var(--display); font-style: italic; font-size: 16px; color: var(--terra); }
-  .step__name {
-    font-family: var(--display); font-size: 26px; font-weight: 400;
-    letter-spacing: -0.01em; line-height: 1.1; color: var(--ink);
+  .step-card {
+    padding: 40px 32px 44px;
+    border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink);
+    transition: background 220ms ease;
   }
-  .step__name .italic { font-style: italic; }
-  .step__desc { font-size: 15px; line-height: 1.6; color: var(--ink-soft); max-width: 520px; }
-  .step__tag {
+  .step-card:hover { background: var(--cream); }
+  .step-card__num {
+    font-family: var(--display); font-style: italic; font-size: 14px;
+    color: var(--terra); display: block; margin-bottom: 28px;
+  }
+  .step-card__name {
+    font-family: var(--display); font-size: clamp(22px, 2.2vw, 28px);
+    font-weight: 400; letter-spacing: -0.01em; line-height: 1.1;
+    margin: 0 0 14px; color: var(--ink);
+  }
+  .step-card__name .italic { font-style: italic; }
+  .step-card__desc { font-size: 14px; line-height: 1.65; color: var(--ink-soft); margin: 0; }
+  .step-card__tag {
+    display: inline-block; margin-top: 18px;
     font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-    font-weight: 500; color: var(--terra); white-space: nowrap; padding-top: 4px;
+    font-weight: 500; color: var(--terra);
+    border-bottom: 1px solid currentColor; padding-bottom: 2px;
   }
-  @media (max-width: 860px) {
-    .step { grid-template-columns: 36px 1fr; gap: 10px 20px; }
-    .step__desc { grid-column: 1 / -1; padding-left: 56px; }
-    .step__tag { grid-column: 2; }
+  @media (max-width: 860px) { .step-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .step-grid { grid-template-columns: 1fr; } }
+
+  .process__extras {
+    background: var(--choco); padding: 70px 0 80px; margin-top: 0;
   }
+  .process__extras-inner {
+    display: grid; grid-template-columns: 220px 1fr 1fr; gap: 60px; align-items: start;
+  }
+  .process__extras-label .k {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--sand); font-weight: 500;
+  }
+  .process__extras-label p {
+    font-family: var(--display); font-style: italic; font-size: 22px;
+    color: var(--cream); line-height: 1.3; margin: 12px 0 0;
+  }
+  .extra-card { border-top: 1px solid rgba(250,247,242,0.18); padding-top: 24px; }
+  .extra-card__num {
+    font-family: var(--display); font-style: italic; font-size: 13px;
+    color: var(--terra); display: block; margin-bottom: 14px;
+  }
+  .extra-card__name {
+    font-family: var(--display); font-size: 24px; font-weight: 400;
+    letter-spacing: -0.01em; line-height: 1.1; margin: 0 0 12px; color: var(--cream);
+  }
+  .extra-card__name .italic { font-style: italic; }
+  .extra-card__desc { font-size: 14px; line-height: 1.6; color: var(--sand); margin: 0; }
+  @media (max-width: 860px) { .process__extras-inner { grid-template-columns: 1fr; gap: 36px; } }
 
   /* ---------- FINAL CTA ---------- */
   .final {
@@ -1323,43 +1280,6 @@
   </div>
 </section>
 
-<!-- ABOUT TEASER -->
-<section class="about" data-screen-label="About Teaser">
-  <div class="wrap">
-    <div class="about__grid">
-      <div class="about__media reveal">
-        <div class="portrait portrait--light" style="background-image:url('images/samuel-about.jpg');background-position:50% 20%;" role="img" aria-label="Samuel Meredith, Central Coast web designer"></div>
-        <div class="about__floating">
-          <div class="portrait portrait--detail" style="background-image:url('images/samuel-about-small.jpg');background-position:50% 30%;" role="img" aria-label="Samuel Meredith on the Central Coast"></div>
-        </div>
-      </div>
-      <div class="about__copy reveal">
-        <div class="about__kicker">
-          <span class="line"></span>
-          <span class="label">A bit about me</span>
-        </div>
-        <h2 class="about__title">
-          A real <span class="italic">person,</span><br/>
-          <span class="caps">not an</span> <span class="italic">agency.</span>
-        </h2>
-        <p class="about__body">
-          I'm a one-person studio on the Central Coast. When you work with me, <strong>you deal with me</strong> the whole way through. No being shuffled around or handed off to someone else.
-        </p>
-        <p class="about__body">
-          Good work, plain English, and a site you're glad to share.
-        </p>
-        <div class="about__sig">
-          <span class="about__sig-name">— Samuel</span>
-          <span class="about__sig-meta">Designer · Builder · Local</span>
-        </div>
-        <div class="about__cta">
-          <a href="About.html" class="btn btn--outline-ink">A bit more about me <span class="arrow">→</span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- PROCESS -->
 <section class="process" data-screen-label="How it works">
   <div class="wrap">
@@ -1368,63 +1288,70 @@
         <span class="eyebrow">— How it works</span>
         <h2 class="process__title">From first message to <span class="italic">live website.</span></h2>
       </div>
-      <p class="process__intro">Eight steps, no jargon. Here's exactly what working together looks like so you know what to expect before you even get in touch.</p>
+      <p class="process__intro">Here's exactly what working together looks like, from first message to a live website you're proud of.</p>
     </div>
 
-    <ul class="step-list reveal">
+    <div class="step-grid reveal">
 
-      <li class="step">
-        <span class="step__num">01</span>
-        <span class="step__name">Get in <span class="italic">touch</span></span>
-        <p class="step__desc">Fill in the contact form or send an email. Samuel will come back to you within one business day for a quick chat about what you need.</p>
-      </li>
+      <div class="step-card">
+        <span class="step-card__num">— 01</span>
+        <h3 class="step-card__name">Get in <span class="italic">touch</span></h3>
+        <p class="step-card__desc">Fill in the contact form or send an email. I'll come back to you within one business day for a quick chat about what you need.</p>
+      </div>
 
-      <li class="step">
-        <span class="step__num">02</span>
-        <span class="step__name">Discovery <span class="italic">brief</span></span>
-        <p class="step__desc">Samuel sends through a short form to get a full picture of your business: what you do, who your customers are, and what you need the site to achieve.</p>
-      </li>
+      <div class="step-card">
+        <span class="step-card__num">— 02</span>
+        <h3 class="step-card__name">Discovery <span class="italic">brief</span></h3>
+        <p class="step-card__desc">I'll send through a short form to get a full picture of your business: what you do, who your customers are, and what you need the site to achieve.</p>
+      </div>
 
-      <li class="step">
-        <span class="step__num">03</span>
-        <span class="step__name">Send your <span class="italic">content</span></span>
-        <p class="step__desc">You'll get a link to upload your photos, logos, and any copy you already have. Not a writer? Samuel can take care of the copy for you.</p>
-        <span class="step__tag">Copy add-on available</span>
-      </li>
+      <div class="step-card">
+        <span class="step-card__num">— 03</span>
+        <h3 class="step-card__name">Send your <span class="italic">content</span></h3>
+        <p class="step-card__desc">You'll get a link to upload your photos, logos, and any existing copy. Not a writer? I can take care of the copy for you.</p>
+        <span class="step-card__tag">Copy add-on available</span>
+      </div>
 
-      <li class="step">
-        <span class="step__num">04</span>
-        <span class="step__name">Choose a <span class="italic">direction</span></span>
-        <p class="step__desc">Samuel puts together a wireframe PDF with three design options: different layouts, different feels. You pick the one that fits your business and that becomes the foundation for the build.</p>
-      </li>
+      <div class="step-card">
+        <span class="step-card__num">— 04</span>
+        <h3 class="step-card__name">Choose a <span class="italic">direction</span></h3>
+        <p class="step-card__desc">I'll put together a wireframe PDF with three design options — different layouts, different feels. You pick the one that fits, and that becomes the foundation for the build.</p>
+      </div>
 
-      <li class="step">
-        <span class="step__num">05</span>
-        <span class="step__name"><span class="italic">Build</span> and review</span>
-        <p class="step__desc">Samuel builds out the pages and sends you a live draft link to click through. Review it, request changes, and sign off when you're happy.</p>
-      </li>
+      <div class="step-card">
+        <span class="step-card__num">— 05</span>
+        <h3 class="step-card__name"><span class="italic">Build</span> and review</h3>
+        <p class="step-card__desc">I'll build out the pages and send you a live draft link to click through. Review it, request changes, and sign off when you're happy.</p>
+      </div>
 
-      <li class="step">
-        <span class="step__num">06</span>
-        <span class="step__name">Go <span class="italic">live</span></span>
-        <p class="step__desc">Once you're happy, Samuel connects the site to your domain. Need one? He'll point you in the right direction and walk you through the setup.</p>
-      </li>
+      <div class="step-card">
+        <span class="step-card__num">— 06</span>
+        <h3 class="step-card__name">Go <span class="italic">live</span></h3>
+        <p class="step-card__desc">Once you're happy, I'll connect the site to your domain. Need one? I'll point you in the right direction and walk you through the setup.</p>
+      </div>
 
-      <li class="step">
-        <span class="step__num">07</span>
-        <span class="step__name">Get <span class="italic">found</span></span>
-        <p class="step__desc">Full SEO analysis and fixes, Google Analytics setup, and Google Business Profile to make sure your new site actually shows up when people search for you.</p>
-        <span class="step__tag">Optional add-on</span>
-      </li>
+    </div>
+  </div>
 
-      <li class="step">
-        <span class="step__num">08</span>
-        <span class="step__name">Ongoing <span class="italic">support</span></span>
-        <p class="step__desc">Need something updated as your business grows? Care plans and one-off edits are available to keep the site current.</p>
-        <span class="step__tag">Optional add-on</span>
-      </li>
-
-    </ul>
+  <div class="process__extras">
+    <div class="wrap">
+      <div class="process__extras-inner reveal">
+        <div class="process__extras-label">
+          <span class="k">— Optional add-ons</span>
+          <p>Available after every project.</p>
+        </div>
+        <div class="extra-card">
+          <span class="extra-card__num">— 07</span>
+          <h3 class="extra-card__name">Get <span class="italic">found</span></h3>
+          <p class="extra-card__desc">Full SEO analysis and fixes, Google Analytics setup, and Google Business Profile so your new site shows up when people search for you.</p>
+        </div>
+        <div class="extra-card">
+          <span class="extra-card__num">— 08</span>
+          <h3 class="extra-card__name">Ongoing <span class="italic">support</span></h3>
+          <p class="extra-card__desc">Need something updated as your business grows? Care plans and one-off edits are available to keep the site current.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
