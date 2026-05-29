@@ -25,7 +25,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://samuelmeredith.com.au/#person","name":"Samuel Meredith","jobTitle":"Web Designer","url":"https://samuelmeredith.com.au","email":"samuelmeredith333@gmail.com","image":"https://samuelmeredith.com.au/images/samuel-hero.jpg","address":{"@type":"PostalAddress","addressLocality":"Gosford","addressRegion":"NSW","postalCode":"2250","addressCountry":"AU"}},{"@type":"LocalBusiness","@id":"https://samuelmeredith.com.au/#business","name":"Samuel Meredith Web Design","description":"Affordable, professional web design for small businesses, tradies and personal brands on the Central Coast.","url":"https://samuelmeredith.com.au","email":"samuelmeredith333@gmail.com","founder":{"@id":"https://samuelmeredith.com.au/#person"},"address":{"@type":"PostalAddress","addressLocality":"Gosford","addressRegion":"NSW","postalCode":"2250","addressCountry":"AU"},"areaServed":["Gosford","Terrigal","The Entrance","Woy Woy","Erina","Avoca"],"priceRange":"$$","image":"https://samuelmeredith.com.au/images/samuel-hero.jpg"}]}
 </script>
-<link rel="preload" href="images/samuel-hero.jpg" as="image" />
+<link rel="preload" href="images/samuel-hero.webp" as="image" type="image/webp" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
@@ -418,6 +418,7 @@
     position: relative;
     width: 100%; height: 100%;
     background-image: url('images/samuel-hero.jpg');
+    background-image: image-set(url('images/samuel-hero.webp') type('image/webp'), url('images/samuel-hero.jpg') type('image/jpeg'));
     background-size: cover;
     background-position: 50% 28%;
     background-color: #2a2018;
@@ -425,11 +426,13 @@
   .portrait::after { content: none; }
   .portrait--light {
     background-image: url('images/samuel-hero.jpg');
+    background-image: image-set(url('images/samuel-hero.webp') type('image/webp'), url('images/samuel-hero.jpg') type('image/jpeg'));
     background-size: cover;
     background-position: 50% 28%;
   }
   .portrait--detail {
     background-image: url('images/samuel-hero.jpg');
+    background-image: image-set(url('images/samuel-hero.webp') type('image/webp'), url('images/samuel-hero.jpg') type('image/jpeg'));
     background-size: cover;
     background-position: 56% 70%;
   }
