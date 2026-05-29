@@ -56,50 +56,71 @@
   /* Tighter pagehead for services page */
   .pagehead { padding: 120px 0 50px; }
 
-  /* ---------- SERVICES LIST — editorial large type ---------- */
+  /* ---------- SERVICES LIST — editorial accordion ---------- */
   .services {
     background: var(--cream-2);
-    padding: 60px 0 80px;
+    padding: 80px 0 100px;
   }
+  .services__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 52px;
+  }
+  .services__label {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .services__note {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+
   .svc-list { border-top: 1px solid var(--ink); margin: 0; padding: 0; list-style: none; }
   .svc { border-bottom: 1px solid var(--rule); }
 
   .svc__row {
     display: grid;
-    grid-template-columns: 56px 1fr 48px;
-    align-items: flex-start;
-    gap: 0;
-    padding: 28px 0 24px;
+    grid-template-columns: 64px 1fr 44px;
+    align-items: center;
+    padding: 30px 0 26px;
     cursor: pointer;
     background: transparent;
     border: none;
     width: 100%;
     text-align: left;
     color: var(--ink);
-    transition: color 260ms ease;
+    transition: color 240ms ease;
   }
   .svc__row:hover { color: var(--terra); }
 
   .svc__num {
     font-family: var(--display);
     font-style: italic;
-    font-size: 14px;
+    font-size: 13px;
     color: var(--terra);
-    padding-top: 10px;
+    align-self: flex-start;
+    padding-top: 6px;
   }
   .svc__name {
     font-family: var(--display);
-    font-size: clamp(48px, 6.5vw, 88px);
+    font-size: clamp(36px, 4.5vw, 64px);
     font-weight: 400;
-    letter-spacing: -0.03em;
-    line-height: 0.9;
+    letter-spacing: -0.025em;
+    line-height: 1;
   }
   .svc__name .italic { font-style: italic; }
   .svc__name .caps {
     font-family: var(--sans);
     text-transform: uppercase;
     font-weight: 500;
-    font-size: 0.46em;
+    font-size: 0.52em;
     letter-spacing: 0.01em;
   }
   .svc__price { display: none; }
@@ -109,13 +130,12 @@
     border: 1px solid var(--rule);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    margin-top: 8px;
-    transition: background 220ms ease, border-color 220ms ease;
+    transition: background 200ms ease, border-color 200ms ease;
     color: currentColor;
     justify-self: end;
     flex-shrink: 0;
   }
-  .svc__toggle svg { width: 13px; height: 13px; transition: transform 300ms ease; }
+  .svc__toggle svg { width: 12px; height: 12px; transition: transform 280ms ease; }
   .svc[aria-expanded="true"] .svc__toggle { background: var(--ink); border-color: var(--ink); color: var(--cream); }
   .svc[aria-expanded="true"] .svc__toggle svg { transform: rotate(45deg); }
 
@@ -125,41 +145,79 @@
     transition: max-height 440ms ease;
   }
   .svc__panel-inner {
-    display: grid; grid-template-columns: 56px 1fr 1fr; gap: 28px;
-    padding: 8px 0 48px;
+    display: grid;
+    grid-template-columns: 64px 1fr 260px;
+    gap: 40px;
+    padding: 8px 0 56px;
   }
   .svc__panel-aside {
     grid-column: 1;
     font-family: var(--display); font-style: italic;
-    color: var(--terra); font-size: 16px;
+    color: var(--terra); font-size: 14px;
+    line-height: 1.6;
     padding-top: 4px;
   }
   .svc__desc {
     grid-column: 2;
-    font-size: 16px; line-height: 1.65; color: var(--ink); max-width: 480px;
+    font-size: 16px; line-height: 1.7; color: var(--ink); max-width: 460px;
   }
   .svc__desc p + p { margin-top: 14px; color: var(--ink-soft); }
+  .svc__enquire {
+    display: inline-block;
+    margin-top: 28px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 3px;
+    transition: color 200ms ease, border-color 200ms ease;
+  }
+  .svc__enquire:hover { color: var(--terra); border-color: var(--terra); }
   .svc__incl {
     grid-column: 3;
-    display: flex; flex-direction: column; gap: 10px;
-    font-size: 15px; color: var(--ink);
+    display: flex; flex-direction: column;
   }
   .svc__incl-label {
-    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--ink-soft); font-weight: 500; margin-bottom: 6px;
+    font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--ink-soft); font-weight: 500; margin-bottom: 16px;
   }
-  .svc__incl ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
-  .svc__incl li { padding-left: 22px; position: relative; line-height: 1.5; }
+  .svc__incl ul { list-style: none; margin: 0; padding: 0; }
+  .svc__incl li {
+    padding: 12px 0 12px 0;
+    position: relative;
+    line-height: 1.4;
+    font-size: 14px;
+    color: var(--ink);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .svc__incl li:last-child { border-bottom: none; }
   .svc__incl li::before {
-    content: ""; position: absolute; left: 0; top: 0.7em;
-    width: 12px; height: 1px; background: var(--terra);
+    content: "";
+    flex-shrink: 0;
+    width: 10px; height: 1px;
+    background: var(--terra);
+    display: block;
   }
-  @media (max-width: 760px) {
-    .svc__row { grid-template-columns: 40px 1fr 40px; padding: 20px 0 18px; }
-    .svc__name { font-size: clamp(36px, 10vw, 56px); }
-    .svc__panel-inner { grid-template-columns: 1fr; padding-left: 0; padding-bottom: 32px; }
-    .svc__panel-aside, .svc__desc, .svc__incl { grid-column: 1; }
+
+  @media (max-width: 860px) {
+    .svc__panel-inner { grid-template-columns: 64px 1fr; }
+    .svc__incl { grid-column: 2; margin-top: 24px; }
+  }
+  @media (max-width: 640px) {
+    .services { padding: 52px 0 72px; }
+    .services__header { flex-direction: column; gap: 6px; margin-bottom: 36px; }
+    .svc__row { grid-template-columns: 44px 1fr 40px; padding: 22px 0 18px; }
+    .svc__name { font-size: clamp(28px, 8vw, 44px); }
+    .svc__panel-inner { grid-template-columns: 1fr; gap: 24px; padding-bottom: 40px; }
     .svc__panel-aside { display: none; }
+    .svc__desc, .svc__incl { grid-column: 1; }
   }
 
   /* ---------- CUSTOM PROJECTS BLOCK ---------- */
@@ -275,6 +333,10 @@
 <!-- SERVICES — full expandable list -->
 <section class="services" data-screen-label="Services list">
   <div class="wrap">
+    <div class="services__header reveal">
+      <span class="services__label">— Six services</span>
+      <span class="services__note">All enquiries welcome</span>
+    </div>
     <ul class="svc-list reveal" id="svc-list">
 
       <li class="svc" aria-expanded="false">
@@ -290,6 +352,7 @@
             <div class="svc__desc">
               <p>A single, focused page built to do one thing well: capture leads, promote a service, or get people to call. Perfect for tradies, campaign pages, or anyone who wants a clean, professional presence without the complexity of a full site.</p>
               <p>If you'd like to be able to update it yourself down the track, I can add a CMS for a little extra. Otherwise I'll handle changes through a care plan or one-off edits.</p>
+              <a href="Contact.html" class="svc__enquire">Enquire about this →</a>
             </div>
             <div class="svc__incl">
               <div class="svc__incl-label">What's included</div>
@@ -319,6 +382,7 @@
             <div class="svc__desc">
               <p>Four pages that cover everything a local business needs: usually Home, About, Services, and Contact. Designed to be professional, fast, and easy to navigate. We'll work out the right structure during our initial chat.</p>
               <p>Want to be able to update things yourself later on? Add portfolio pieces, swap photos, that sort of thing? I can add a CMS so you can do that without touching any code.</p>
+              <a href="Contact.html" class="svc__enquire">Enquire about this →</a>
             </div>
             <div class="svc__incl">
               <div class="svc__incl-label">What's included</div>
@@ -348,6 +412,7 @@
             <div class="svc__desc">
               <p>Got a website that's embarrassing to hand out? A redesign can completely transform how people perceive your business. I'll take what you have, work out what's actually worth keeping, and rebuild it into something you're genuinely proud to share.</p>
               <p>Same information, same business, just presented properly. CMS add-on available if you want to manage updates yourself down the track.</p>
+              <a href="Contact.html" class="svc__enquire">Enquire about this →</a>
             </div>
             <div class="svc__incl">
               <div class="svc__incl-label">What's included</div>
@@ -377,6 +442,7 @@
             <div class="svc__desc">
               <p>Your logo is often the first thing people see. It doesn't need to be complicated. It just needs to look intentional, professional, and like you.</p>
               <p>Simple, clean branding for businesses just starting out, or those who've been operating without a proper visual identity. Often paired with a website build.</p>
+              <a href="Contact.html" class="svc__enquire">Enquire about this →</a>
             </div>
             <div class="svc__incl">
               <div class="svc__incl-label">What's included</div>
@@ -405,6 +471,7 @@
             <div class="svc__desc">
               <p>Want to know why you're not showing up on Google? I'll go through your site, identify what's holding you back, and give you a clear picture of what needs to change.</p>
               <p>A note on scope: I offer SEO analysis for any site, but I only implement fixes on websites I've built. If your site is with someone else, you'll get the full findings and either you or your developer can carry out the changes.</p>
+              <a href="Contact.html" class="svc__enquire">Enquire about this →</a>
             </div>
             <div class="svc__incl">
               <div class="svc__incl-label">What's included</div>
@@ -434,6 +501,7 @@
               <p>Once your site is live, things change: new photos, updated hours, fresh copy. If I've added a CMS, you can handle most of that yourself. If not, you've got two options.</p>
               <p><strong>Care plan</strong> — paid monthly. Covers content edits, security monitoring, backups, and priority response if something goes wrong. Good if your site needs regular attention.</p>
               <p>Or, if changes only come up occasionally, <strong>one-off edits</strong> are available at a flat fee per change. Just reach out when you need something.</p>
+              <a href="Contact.html" class="svc__enquire">Enquire about this →</a>
             </div>
             <div class="svc__incl">
               <div class="svc__incl-label">Care plan includes</div>
