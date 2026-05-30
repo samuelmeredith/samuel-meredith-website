@@ -144,6 +144,8 @@
     object-position: top center;
     display: block;
   }
+  /* all screenshot cards share the same 16:10 frame */
+  .pf--screen .pf-media { aspect-ratio: 16 / 10; }
 
   /* wireframe sketch inside each card body */
   .pf-sketch {
@@ -297,7 +299,7 @@
     <div class="pf-grid" id="pf-grid">
 
       <!-- 01 — Sophie Meredith UGC Creator -->
-      <a class="pf-card pf--wide" href="https://sophie-site-six.vercel.app" target="_blank" rel="noopener">
+      <a class="pf-card pf--wide pf--screen" href="https://sophie-site-six.vercel.app" target="_blank" rel="noopener">
         <div class="pf-media">
           <div class="pf-browser pf--sophie">
             <div class="pf-browser__chrome">
@@ -323,7 +325,7 @@
       </a>
 
       <!-- 02 — Heart Link Supports -->
-      <a class="pf-card pf--tall" href="https://heart-link-supports.vercel.app" target="_blank" rel="noopener">
+      <a class="pf-card pf--wide pf--screen" href="https://heart-link-supports.vercel.app" target="_blank" rel="noopener">
         <div class="pf-media">
           <div class="pf-browser pf--heartlink">
             <div class="pf-browser__chrome">
@@ -349,7 +351,7 @@
       </a>
 
       <!-- 03 — Elevate Building & Contracting -->
-      <a class="pf-card" href="https://elevate-ivory-five.vercel.app" target="_blank" rel="noopener">
+      <a class="pf-card pf--wide pf--screen" href="https://elevate-ivory-five.vercel.app" target="_blank" rel="noopener">
         <div class="pf-media">
           <div class="pf-browser pf--elevate">
             <div class="pf-browser__chrome">
