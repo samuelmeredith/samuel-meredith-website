@@ -163,12 +163,8 @@
   .vs-item {
     position: absolute; inset: 0;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 500ms ease, transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
     pointer-events: none;
-  }
-  .vs-item.is-active {
-    opacity: 1; transform: none; pointer-events: auto;
+    will-change: transform, opacity;
   }
   .vs-item__num {
     font-family: var(--display); font-style: italic; font-size: 13px; color: var(--terra);
@@ -317,7 +313,7 @@
         </div>
 
         <div class="values-scroll__right">
-          <div class="vs-item is-active" data-index="0">
+          <div class="vs-item" data-index="0">
             <span class="vs-item__num">— 01 /</span>
             <h3 class="vs-item__name"><span class="italic">Honest</span></h3>
             <p class="vs-item__desc">I'll tell you what you <strong>actually need</strong>, not upsell you on things you don't. If a one-page site is the right call, I'll say so — even if a five-pager would pay me more.</p>
@@ -407,27 +403,37 @@
   (function() {
     var section = document.getElementById('values-scroll');
     if (!section) return;
-    var items   = section.querySelectorAll('.vs-item');
-    var numEl   = document.getElementById('vs-num');
-    var current = 0;
-    var total   = items.length;
+    var items = section.querySelectorAll('.vs-item');
+    var numEl = document.getElementById('vs-num');
+    var total = items.length;
 
-    function setActive(index) {
-      if (index === current) return;
-      items[current].classList.remove('is-active');
-      current = index;
-      items[current].classList.add('is-active');
-      if (numEl) numEl.textContent = (current + 1 < 10 ? '0' : '') + (current + 1);
-    }
-
-    window.addEventListener('scroll', function() {
-      var rect     = section.getBoundingClientRect();
+    function update() {
+      var rect = section.getBoundingClientRect();
       var scrollable = section.offsetHeight - window.innerHeight;
       if (scrollable <= 0) return;
       var progress = Math.max(0, Math.min(1, -rect.top / scrollable));
-      var index    = Math.min(total - 1, Math.floor(progress * total));
-      setActive(index);
-    }, { passive: true });
+
+      items.forEach(function(item, i) {
+        // Each item's "centre" is evenly spaced through 0→1
+        var mid = (i + 0.5) / total;
+        // t: negative = not yet reached, 0 = centred, positive = passed
+        var t = (progress - mid) * total;
+        // Positive translateY = below, negative = above
+        var y = -t * 180;
+        var opacity = Math.max(0, 1 - Math.abs(t) * 2.4);
+        item.style.transform = 'translateY(' + y + 'px)';
+        item.style.opacity = opacity;
+        item.style.pointerEvents = opacity > 0.3 ? 'auto' : 'none';
+      });
+
+      if (numEl) {
+        var index = Math.min(total - 1, Math.floor(progress * total));
+        numEl.textContent = (index + 1 < 10 ? '0' : '') + (index + 1);
+      }
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
   })();
 </script>
 </body>
