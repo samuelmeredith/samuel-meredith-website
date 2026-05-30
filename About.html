@@ -159,12 +159,17 @@
     transition: opacity 300ms ease;
   }
 
-  .values-scroll__right { position: relative; height: 320px; }
+  .values-scroll__right {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
   .vs-item {
-    position: absolute; inset: 0;
-    opacity: 0;
-    pointer-events: none;
-    will-change: transform, opacity;
+    position: absolute;
+    width: 100%;
+    will-change: transform;
   }
   .vs-item__num {
     font-family: var(--display); font-style: italic; font-size: 13px; color: var(--terra);
@@ -413,17 +418,13 @@
       if (scrollable <= 0) return;
       var progress = Math.max(0, Math.min(1, -rect.top / scrollable));
 
+      var vh = window.innerHeight;
       items.forEach(function(item, i) {
-        // Each item's "centre" is evenly spaced through 0→1
         var mid = (i + 0.5) / total;
-        // t: negative = not yet reached, 0 = centred, positive = passed
         var t = (progress - mid) * total;
-        // Positive translateY = below, negative = above
-        var y = -t * 180;
-        var opacity = Math.max(0, 1 - Math.abs(t) * 2.4);
+        // Travel full viewport height — enters from bottom, exits to top
+        var y = -t * vh * 2;
         item.style.transform = 'translateY(' + y + 'px)';
-        item.style.opacity = opacity;
-        item.style.pointerEvents = opacity > 0.3 ? 'auto' : 'none';
       });
 
       if (numEl) {
