@@ -461,12 +461,12 @@
         var rect = card.getBoundingClientRect();
         var cardCenter = rect.top + rect.height / 2;
         var dist = Math.abs(cardCenter - vh / 2);
-        var maxDist = vh * 0.72;
+        var maxDist = vh * 1.6;
         var t = Math.max(0, 1 - dist / maxDist);
         // smoothstep easing
         t = t * t * (3 - 2 * t);
-        card.style.transform = 'scale(' + (0.93 + 0.07 * t) + ')';
-        card.style.opacity   = 0.62 + 0.38 * t;
+        card.style.transform = 'scale(' + (0.88 + 0.12 * t) + ')';
+        card.style.opacity   = 0.55 + 0.45 * t;
       });
     }
 
