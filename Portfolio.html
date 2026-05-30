@@ -34,9 +34,6 @@
   gtag('js', new Date());
   gtag('config', 'G-SFJJJS3ERM');
 </script>
-<link rel="preconnect" href="https://sophie-site-six.vercel.app" />
-<link rel="preconnect" href="https://heart-link-supports.vercel.app" />
-<link rel="preconnect" href="https://elevate-ivory-five.vercel.app" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
@@ -139,28 +136,13 @@
   .pf--heartlink .pf-browser__body { background: #EEF4F0; }
   .pf--elevate   .pf-browser__body { background: #1C2D4A; }
 
-  /* live iframe preview */
-  .pf-iframe-wrap { position: absolute; inset: 0; overflow: hidden; }
-  .pf-iframe-wrap iframe {
-    position: absolute; top: 0; left: 0;
-    width: 1280px; height: 900px;
-    transform: scale(0.6); transform-origin: top left;
-    border: none; pointer-events: none;
-    opacity: 0; transition: opacity 0.5s ease;
-  }
-  .pf-iframe-wrap iframe.loaded { opacity: 1; }
-  .pf-iframe-shimmer {
-    position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(90deg, var(--cream-2) 0%, #e8e0d5 50%, var(--cream-2) 100%);
-    background-size: 200% 100%;
-    animation: pf-shimmer 1.6s ease-in-out infinite;
-    transition: opacity 0.5s ease;
-  }
-  .pf-iframe-shimmer.hidden { opacity: 0; pointer-events: none; }
-  .pf--elevate .pf-iframe-shimmer { background: linear-gradient(90deg, #1a2a40 0%, #223350 50%, #1a2a40 100%); }
-  @keyframes pf-shimmer {
-    0%   { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+  /* screenshot preview */
+  .pf-browser__body img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
   }
 
   /* wireframe sketch inside each card body */
@@ -323,10 +305,7 @@
               <span class="url">sophiemeredith.com.au</span>
             </div>
             <div class="pf-browser__body">
-              <div class="pf-iframe-wrap">
-                <div class="pf-iframe-shimmer"></div>
-                <iframe src="https://sophie-site-six.vercel.app" title="Sophie Meredith UGC Creator website" scrolling="no" tabindex="-1"></iframe>
-              </div>
+              <img src="images/pf-sophie.webp" alt="Sophie Meredith UGC Creator website" />
             </div>
           </div>
         </div>
@@ -352,10 +331,7 @@
               <span class="url">heartlinksupports.com.au</span>
             </div>
             <div class="pf-browser__body">
-              <div class="pf-iframe-wrap">
-                <div class="pf-iframe-shimmer"></div>
-                <iframe src="https://heart-link-supports.vercel.app" title="Heart Link Supports website" scrolling="no" tabindex="-1"></iframe>
-              </div>
+              <img src="images/pf-heartlink.webp" alt="Heart Link Supports website" />
             </div>
           </div>
         </div>
@@ -381,10 +357,7 @@
               <span class="url">elevatebuilding.com.au</span>
             </div>
             <div class="pf-browser__body">
-              <div class="pf-iframe-wrap">
-                <div class="pf-iframe-shimmer"></div>
-                <iframe src="https://elevate-ivory-five.vercel.app" title="Elevate Building & Contracting website" scrolling="no" tabindex="-1"></iframe>
-              </div>
+              <img src="images/pf-elevate.webp" alt="Elevate Building website" />
             </div>
           </div>
         </div>
@@ -475,15 +448,6 @@
 
 <script src="styles/site.js"></script>
 <script>
-  // Iframe shimmer — reveal once loaded
-  document.querySelectorAll('.pf-iframe-wrap iframe').forEach(function(iframe) {
-    var shimmer = iframe.previousElementSibling;
-    iframe.addEventListener('load', function() {
-      iframe.classList.add('loaded');
-      if (shimmer) shimmer.classList.add('hidden');
-    });
-  });
-
   // Scroll-driven scale: cards enlarge as they reach the viewport centre
   (function() {
     var cards = Array.from(document.querySelectorAll('#pf-grid .pf-card'));
