@@ -465,17 +465,19 @@
         var t = Math.max(0, 1 - dist / maxDist);
         // smoothstep easing
         t = t * t * (3 - 2 * t);
-        card.style.transform = 'scale(' + (0.86 + 0.14 * t) + ')';
-        card.style.opacity   = 0.42 + 0.58 * t;
+        card.style.transform = 'scale(' + (0.93 + 0.07 * t) + ')';
+        card.style.opacity   = 0.62 + 0.38 * t;
       });
     }
 
-    // Set initial transitions after first paint so page load is instant
+    // Set correct initial state immediately (no transition) so cards don't animate on load
+    update();
+
+    // Add transition in next frame so scroll movement is smooth, not the initial state
     requestAnimationFrame(function() {
       cards.forEach(function(c) {
         c.style.transition = 'transform 0.55s cubic-bezier(0.22,1,0.36,1), opacity 0.55s ease';
       });
-      update();
     });
 
     window.addEventListener('scroll', update, { passive: true });
