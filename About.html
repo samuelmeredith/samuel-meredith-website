@@ -115,85 +115,47 @@
     .story__media { position: static; aspect-ratio: 4/3; }
   }
 
-  /* ---------- HOW I WORK — sticky scroll ---------- */
-  .values-scroll {
-    position: relative;
-    height: 700vh;
+  /* ---------- HOW I WORK ---------- */
+  .values {
     background: var(--cream);
+    padding: 120px 0 130px;
   }
-  .values-scroll__pin {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
+  .values__head {
+    margin-bottom: 80px;
   }
-  .values-scroll__layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    width: 100%;
-  }
-  .values-scroll__left { padding-top: 12px; }
-  .vs-eyebrow { font-family: var(--sans); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
-  .vs-title {
+  .values__title {
     font-family: var(--display);
     font-size: clamp(42px, 5.5vw, 80px);
     line-height: 0.96; font-weight: 400; letter-spacing: -0.02em;
-    margin: 16px 0 24px; color: var(--ink);
+    margin: 14px 0 20px; color: var(--ink);
   }
-  .vs-title .italic { font-style: italic; }
-  .vs-title .caps { font-family: var(--sans); text-transform: uppercase; font-weight: 500; font-size: 0.56em; letter-spacing: 0; }
-  .vs-lede {
-    font-family: var(--display); font-style: italic; font-size: 18px; line-height: 1.5;
-    color: var(--ink-soft); margin: 0 0 40px; max-width: 400px;
+  .values__title .italic { font-style: italic; }
+  .values__title .caps { font-family: var(--sans); text-transform: uppercase; font-weight: 500; font-size: 0.56em; letter-spacing: 0; }
+  .values__lede {
+    font-family: var(--display); font-style: italic; font-size: 19px; line-height: 1.5;
+    color: var(--ink-soft); margin: 0; max-width: 560px;
   }
-  .vs-counter {
-    font-family: var(--display); font-style: italic; font-size: 15px; color: var(--ink-soft);
-    border-top: 1px solid var(--rule); padding-top: 20px; display: flex; align-items: baseline; gap: 4px;
+  .values__list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+  .value {
+    display: grid;
+    grid-template-columns: 72px 1fr 1.4fr;
+    gap: 40px;
+    padding: 44px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
   }
-  .vs-counter__current {
-    font-size: 28px; color: var(--terra); font-style: italic; line-height: 1;
-    transition: opacity 300ms ease;
-  }
-
-  .values-scroll__right {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-  }
-  .vs-item {
-    position: absolute;
-    width: 100%;
-    will-change: transform;
-  }
-  .vs-item__num {
-    font-family: var(--display); font-style: italic; font-size: 13px; color: var(--terra);
-    display: block; margin-bottom: 16px;
-  }
-  .vs-item__name {
+  .value__num { font-family: var(--display); font-style: italic; font-size: 14px; color: var(--terra); padding-top: 8px; }
+  .value__name {
     font-family: var(--display);
-    font-size: clamp(48px, 6vw, 88px);
-    font-weight: 400; line-height: 0.95; letter-spacing: -0.025em;
-    color: var(--ink); margin: 0 0 28px;
+    font-size: clamp(36px, 4.5vw, 64px);
+    font-weight: 400; line-height: 1; letter-spacing: -0.02em; color: var(--ink);
   }
-  .vs-item__name .italic { font-style: italic; }
-  .vs-item__desc {
-    font-size: 17px; line-height: 1.7; color: var(--ink-soft); max-width: 480px;
-  }
-  .vs-item__desc strong { color: var(--ink); font-weight: 500; }
-
-  @media (max-width: 860px) {
-    .values-scroll { height: auto; }
-    .values-scroll__pin { position: static; height: auto; padding: 80px 0; }
-    .values-scroll__layout { grid-template-columns: 1fr; gap: 48px; }
-    .values-scroll__right { height: auto; }
-    .vs-item { position: static; opacity: 1; transform: none; pointer-events: auto; margin-bottom: 48px; }
-    .vs-item:last-child { margin-bottom: 0; }
+  .value__name .italic { font-style: italic; }
+  .value__desc { font-size: 16px; line-height: 1.7; color: var(--ink-soft); padding-top: 8px; }
+  .value__desc strong { color: var(--ink); font-weight: 500; }
+  @media (max-width: 760px) {
+    .value { grid-template-columns: 48px 1fr; gap: 16px 24px; }
+    .value__desc { grid-column: 2; }
   }
 
   /* ---------- TOOLS ROW ---------- */
@@ -301,47 +263,36 @@
   </div>
 </section>
 
-<!-- HOW I WORK — sticky scroll -->
-<section class="values-scroll" id="values-scroll" data-screen-label="How I work">
-  <div class="values-scroll__pin">
-    <div class="wrap">
-      <div class="values-scroll__layout">
-
-        <div class="values-scroll__left">
-          <span class="vs-eyebrow">— How I work</span>
-          <h2 class="vs-title">Four <span class="italic">things</span> I won't<br/><span class="caps">budge on.</span></h2>
-          <p class="vs-lede">The principles I keep coming back to — quietly, on every project, whether the client notices or not.</p>
-          <div class="vs-counter">
-            <span class="vs-counter__current" id="vs-num">01</span>
-            <span>&thinsp;/ 04</span>
-          </div>
-        </div>
-
-        <div class="values-scroll__right">
-          <div class="vs-item" data-index="0">
-            <span class="vs-item__num">— 01 /</span>
-            <h3 class="vs-item__name"><span class="italic">Honest</span></h3>
-            <p class="vs-item__desc">I'll tell you what you <strong>actually need</strong>, not upsell you on things you don't. If a one-page site is the right call, I'll say so — even if a five-pager would pay me more.</p>
-          </div>
-          <div class="vs-item" data-index="1">
-            <span class="vs-item__num">— 02 /</span>
-            <h3 class="vs-item__name">Clear</h3>
-            <p class="vs-item__desc">No confusing jargon. You'll <strong>always know</strong> where your project is at — what's next, what I need from you, and when it'll be done.</p>
-          </div>
-          <div class="vs-item" data-index="2">
-            <span class="vs-item__num">— 03 /</span>
-            <h3 class="vs-item__name"><span class="italic">Local</span></h3>
-            <p class="vs-item__desc">I'm right here on the Central Coast. A <strong>real person</strong> you can actually talk to, meet for a coffee, and call back if something needs fixing.</p>
-          </div>
-          <div class="vs-item" data-index="3">
-            <span class="vs-item__num">— 04 /</span>
-            <h3 class="vs-item__name">Affordable</h3>
-            <p class="vs-item__desc">Quality work doesn't have to cost a fortune. I keep my <strong>prices fair</strong>, my scope realistic, and my add-ons honest — no surprise invoices.</p>
-          </div>
-        </div>
-
-      </div>
+<!-- HOW I WORK -->
+<section class="values" data-screen-label="How I work">
+  <div class="wrap">
+    <div class="values__head reveal">
+      <span class="eyebrow">— How I work</span>
+      <h2 class="values__title">Four <span class="italic">things</span> I won't<br/><span class="caps">budge on.</span></h2>
+      <p class="values__lede">The principles I keep coming back to — quietly, on every project, whether the client notices or not.</p>
     </div>
+    <ul class="values__list">
+      <li class="value reveal">
+        <span class="value__num">— 01 /</span>
+        <span class="value__name"><span class="italic">Honest</span></span>
+        <p class="value__desc">I'll tell you what you <strong>actually need</strong>, not upsell you on things you don't. If a one-page site is the right call, I'll say so — even if a five-pager would pay me more.</p>
+      </li>
+      <li class="value reveal">
+        <span class="value__num">— 02 /</span>
+        <span class="value__name">Clear</span>
+        <p class="value__desc">No confusing jargon. You'll <strong>always know</strong> where your project is at — what's next, what I need from you, and when it'll be done.</p>
+      </li>
+      <li class="value reveal">
+        <span class="value__num">— 03 /</span>
+        <span class="value__name"><span class="italic">Local</span></span>
+        <p class="value__desc">I'm right here on the Central Coast. A <strong>real person</strong> you can actually talk to, meet for a coffee, and call back if something needs fixing.</p>
+      </li>
+      <li class="value reveal">
+        <span class="value__num">— 04 /</span>
+        <span class="value__name">Affordable</span>
+        <p class="value__desc">Quality work doesn't have to cost a fortune. I keep my <strong>prices fair</strong>, my scope realistic, and my add-ons honest — no surprise invoices.</p>
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -404,38 +355,5 @@
 </footer>
 
 <script src="styles/site.js"></script>
-<script>
-  (function() {
-    var section = document.getElementById('values-scroll');
-    if (!section) return;
-    var items = section.querySelectorAll('.vs-item');
-    var numEl = document.getElementById('vs-num');
-    var total = items.length;
-
-    function update() {
-      var rect = section.getBoundingClientRect();
-      var scrollable = section.offsetHeight - window.innerHeight;
-      if (scrollable <= 0) return;
-      var progress = Math.max(0, Math.min(1, -rect.top / scrollable));
-
-      var vh = window.innerHeight;
-      items.forEach(function(item, i) {
-        var mid = (i + 0.5) / total;
-        var t = (progress - mid) * total;
-        // Travel full viewport height — enters from bottom, exits to top
-        var y = -t * vh * 2;
-        item.style.transform = 'translateY(' + y + 'px)';
-      });
-
-      if (numEl) {
-        var index = Math.min(total - 1, Math.floor(progress * total));
-        numEl.textContent = (index + 1 < 10 ? '0' : '') + (index + 1);
-      }
-    }
-
-    window.addEventListener('scroll', update, { passive: true });
-    update();
-  })();
-</script>
 </body>
 </html>
