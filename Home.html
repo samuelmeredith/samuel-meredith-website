@@ -613,8 +613,24 @@
   .step-card {
     padding: 24px 24px 28px;
     border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink);
+    position: relative;
+    overflow: hidden;
     transition: background 220ms ease;
   }
+  .step-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      220px circle at var(--cx, -200px) var(--cy, -200px),
+      rgba(196, 98, 45, 0.13),
+      transparent 75%
+    );
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
+  .step-grid.lit .step-card::before { opacity: 1; }
   .step-card:hover { background: var(--cream); }
   .step-card:nth-child(4n) { border-right: none; }
   .step-card:nth-last-child(-n+4) { border-bottom: none; }
@@ -1014,6 +1030,23 @@
   }
   scaleWhoPreview();
   window.addEventListener('resize', scaleWhoPreview);
+
+  // Cursor spotlight on process grid
+  const stepGrid = document.querySelector('.step-grid');
+  if (stepGrid) {
+    const stepCards = stepGrid.querySelectorAll('.step-card');
+    stepGrid.addEventListener('mousemove', (e) => {
+      stepGrid.classList.add('lit');
+      stepCards.forEach(card => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--cx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--cy', (e.clientY - r.top) + 'px');
+      });
+    });
+    stepGrid.addEventListener('mouseleave', () => {
+      stepGrid.classList.remove('lit');
+    });
+  }
 </script>
 </body>
 </html>
